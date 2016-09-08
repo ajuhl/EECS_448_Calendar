@@ -1,0 +1,33 @@
+body {
+	background-color: #F0F0F0 ;
+}
+
+
+
+
+table {
+	
+    border: 1px solid black
+	
+}
+
+tr.day  {
+	background-color: #ffcccc;
+}
+
+td.day {
+	background-color: #ffcccc;
+}
+
+
+
+.floatCenter {
+	float: right;
+	margin-right: 20%;
+	width: 33%;
+}
+
+
+
+
+
