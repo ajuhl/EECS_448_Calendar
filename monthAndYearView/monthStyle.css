@@ -1,0 +1,131 @@
+body.month{
+	background: white;
+	font-family: arial black; 
+	color: white;
+}
+
+th.monthHeader {
+	background-color: #800000;
+	font-size: 36px;
+	margin-right: 50%;
+}
+
+tr.weekdays {
+	background-color: black;
+	text-align: center;
+}
+
+tr.week  {
+	background-color: #A0A0A0 ;
+	color: white;
+	font-weight: bold;
+	height: 100px;
+	font-size: 36px;
+	padding: 0px;	
+}
+
+
+td.days {
+	border-width: 20px;
+	border-radius:20% 0%;
+	border: 5px solid white;
+	
+}
+
+td.daysDiffMonth {
+	border-width: 20px;
+	border-radius:20% 0%;
+	border: 5px solid white;
+	color: #C8C8C8 ;
+}
+
+
+.buttonNextMonth {
+  background-color: #800000;
+  border: 5px solid white;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  width: 75%;
+  cursor: pointer;
+}
+
+.buttonNextMonth span {
+  cursor: pointer;
+  display: inline-block;
+  transition: 1.0s;
+}
+
+.buttonNextMonth span:after {
+  transition: 0.5s;
+}
+
+.buttonNextMonth:hover span {
+  padding-left: 75%;
+}
+
+.buttonPreviousMonth {
+  display: inline-block;
+  background-color: #800000;
+  border: 5px solid white;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  width: 75%;
+  cursor: pointer;
+  
+}
+
+.buttonPreviousMonth span {
+  cursor: pointer;
+  display: inline-block;
+  transition: 1.0s;
+}
+
+.buttonPreviousMonth span:after {
+  transition: 0.5s;
+}
+
+.buttonPreviousMonth:hover span {
+  padding-right: 66%;
+  
+}
+
+.buttonNoMonth {
+  display: inline-block;
+  background-color: #C8C8C8 ;
+  border: 5px solid white;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  width: 75%;
+  cursor: pointer;
+  
+}
+
+.buttonNoMonth span {
+  cursor: pointer;
+  display: inline-block;
+  transition: 1.0s;
+}
+
+.buttonNoMonth span:after {
+  transition: 0.5s;
+}
+
+.buttonNoMonth:hover span {
+  
+  
+}
+
+
+.rightButton {
+	text-align: center;
+}
+
+.leftButton {
+	text-align: center;
+}
