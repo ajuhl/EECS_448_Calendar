@@ -1,6 +1,9 @@
 <html>
 <head>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="calendar.js"></script>
 
 
 </head>
@@ -83,7 +86,7 @@ Submit
 
 <div class="selectorRight">
 Pick A View
-	<button class = "submit">YEAR</button>
+	<button class = "submit" id="button_year">YEAR</button>
 <br><br>
 	<button class = "submit">MONTH</button>
 <br><br>
@@ -93,7 +96,7 @@ Pick A View
 
 <br><br><br>
 
-<table  align= "center"  width = "75%" height = "75%" >  
+<table  id="month_table" align= "center"  width = "75%" height = "75%" >  
 
 	<tr>
 		<th class = "monthHeader" colspan="7" align = "right"><h1> MONTH YEAR </h1></th>
@@ -110,63 +113,63 @@ Pick A View
     </tr>
 	
 	<tr align = "center" class = "week"> 
-		<td class = "days" id = "January 1"> 			1		</td>
-		<td class = "days" id = "January 2"> 			2		</td>
-		<td class = "days" id = "January 3"> 			3 		</td>
-		<td class = "days" id = "January 4"> 			4		</td>
-		<td class = "days" id = "January 5"> 			5		</td>
-		<td class = "days" id = "January 6"> 			6		</td>
-		<td class = "days" id = "January 7"> 			7		</td>
+		<td class = "days" id = "day_0"></td>
+		<td class = "days" id = "day_1"></td>
+		<td class = "days" id = "day_2"></td>
+		<td class = "days" id = "day_3"></td>
+		<td class = "days" id = "day_4"></td>
+		<td class = "days" id = "day_5"></td>
+		<td class = "days" id = "day_6"></td>
     </tr>
 	
 	<tr align = "center" class = "week"> 
-		<td class = "days" id = "January 8"> 			8		</td>
-		<td class = "days" id = "January 9"> 			9		</td>
-		<td class = "days" id = "January 10"> 			10		</td>
-		<td class = "days" id = "January 11"> 			11		</td>
-		<td class = "days" id = "January 12"> 			12		</td>
-		<td class = "days" id = "January 13"> 			13		</td>
-		<td class = "days" id = "January 14"> 			14		</td>
+		<td class = "days" id = "day_7"></td>
+		<td class = "days" id = "day_8"></td>
+		<td class = "days" id = "day_9"></td>
+		<td class = "days" id = "day_10"></td>
+		<td class = "days" id = "day_11"></td>
+		<td class = "days" id = "day_12"></td>
+		<td class = "days" id = "day_13"></td>
     </tr>
 	
 	<tr align = "center" class = "week"> 
-		<td class = "days" id = "January 15"> 			15		</td>
-		<td class = "days" id = "January 16"> 			16		</td>
-		<td class = "days" id = "January 17"> 			17		</td>
-		<td class = "days" id = "January 18"> 			18		</td>
-		<td class = "days" id = "January 19" > 			19		</td>
-		<td class = "days" id = "January 20"> 			20		</td>
-		<td class = "days" id = "January 21"> 			21		</td>
+		<td class = "days" id = "day_14"></td>
+		<td class = "days" id = "day_15"></td>
+		<td class = "days" id = "day_16"></td>
+		<td class = "days" id = "day_17"></td>
+		<td class = "days" id = "day_18"></td>
+		<td class = "days" id = "day_19"></td>
+		<td class = "days" id = "day_20"></td>
     </tr>
 	
 	<tr align = "center" class = "week"> 
-		<td class = "days" id = "January 22"> 			22		</td>
-		<td class = "days" id = "January 23"> 			23		</td>
-		<td class = "days" id = "January 24"> 			24		</td>
-		<td class = "days" id = "January 25"> 			25		</td>
-		<td class = "days" id = "January 26"> 			26		</td>
-		<td class = "days" id = "January 27"> 			27		</td>
-		<td class = "days" id = "January 28"> 			28		</td>
+		<td class = "days" id = "day_21"></td>
+		<td class = "days" id = "day_22"></td>
+		<td class = "days" id = "day_23"></td>
+		<td class = "days" id = "day_24"></td>
+		<td class = "days" id = "day_25"></td>
+		<td class = "days" id = "day_26"></td>
+		<td class = "days" id = "day_27"></td>
     </tr>
 	
 	<tr align = "center" class = "week"> 
-		<td class = "days" id = "January 29"> 			29		</td>
-		<td class = "days" id = "January 30">			30		</td>
-		<td class = "days" id = "January 31"> 			31		</td>
-		<td class = "daysDiffMonth"> 	1		</td>
-		<td class = "daysDiffMonth">	2 		</td>
-		<td class = "daysDiffMonth">	3 		</td>
-		<td class = "daysDiffMonth">	4 		</td>
+		<td class = "days" id = "day_28"></td>
+		<td class = "days" id = "day_29"></td>
+		<td class = "days" id = "day_30"></td>
+		<td class = "days" id = "day_31"></td>
+		<td class = "days" id = "day_32"></td>
+		<td class = "days" id = "day_33"></td>
+		<td class = "days" id = "day_34"></td>
     </tr>
 	
 	<tr align = "center" class = "week"> 
-		<td class = "daysDiffMonth">	4 		</td>
-		<td class = "daysDiffMonth">	5 		</td>
-		<td class = "daysDiffMonth">	6  		</td>
-		<td class = "daysDiffMonth">	7 		</td>
-		<td class = "daysDiffMonth">	8 		</td>
-		<td class = "daysDiffMonth">	9 		</td>
-		<td class = "daysDiffMonth">	10		</td>
+		<td class = "days" id = "day_35"></td>
+		<td class = "days" id = "day_36"></td>
+		<td class = "days" id = "day_37"></td>
+		<td class = "days" id = "day_38"></td>
+		<td class = "days" id = "day_39"></td>
+		<td class = "days" id = "day_40"></td>
+		<td class = "days" id = "day_41"></td>
     </tr>
 	
 </table>
