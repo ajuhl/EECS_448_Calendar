@@ -8,6 +8,7 @@ th.monthHeader {
 	background-color: #800000;
 	font-size: 36px;
 	margin-right: 50%;
+	text-align: center;
 }
 
 tr.weekdays {
@@ -68,8 +69,6 @@ select.myDay{
 .selectorLeft
 {
 	text-align: center;
-	
-
   position: fixed;
   top: 7.5%;
   left: 2%;
@@ -114,7 +113,7 @@ td.daysDiffMonth {
   border: 5px solid white;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
   width: 75%;
   cursor: pointer;
@@ -140,7 +139,7 @@ td.daysDiffMonth {
   border: 5px solid white;
   color: #FFFFFF;
   text-align: center;
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
   width: 75%;
   cursor: pointer;
@@ -202,4 +201,44 @@ td.daysDiffMonth {
 td.days:hover { 
 	background-color: #A0A9A9 ;
 	transform: translateY(-4px);
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
