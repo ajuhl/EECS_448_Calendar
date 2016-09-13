@@ -98,3 +98,33 @@ function getDaysFromMonthNum(num){
 	
 	return [31,28,31,30,31,30,31,31,30,31,30,31][num];
 }
+
+function toggleYearView(year) {
+    
+    var t = document.getElementById('table');
+    var nmm =  document.getElementById('nextMonth');
+	var pmm =  document.getElementById('prevMonth'); 
+	var moo = document.getElementById('month_table');
+    
+   	t.style.display = "block";
+	moo.style.display = 'none'
+	pmm.style.display = 'none'
+	nmm.style.display = 'none'
+	
+	return;
+}
+
+function toggleMonthView(month) {
+    
+    var mo = document.getElementById('month_table');
+    var nm =  document.getElementById('nextMonth');
+	var pm =  document.getElementById('prevMonth');
+	var y = document.getElementById('table');
+    		
+	mo.style.display = 'block';
+	pm.style.display = 'inline'
+	nm.style.display = 'inline'
+	y.style.display = "none";
+	      
+    return;
+}

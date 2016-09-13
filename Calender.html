@@ -12,36 +12,778 @@
 <link type = "text/css" rel = "stylesheet" href = "Calender.css">
 <body class = "month";>
 
-	<div class="selectorLeft">
-		<!-- Creating and aligning the buttons to switch months -->
-		
-		<div class="rightButton">
-		
-			<button class="buttonNextMonth" align = "left" ><span>Next Month </span></button>
-			
-		</div>
-		
-		<div class="leftButton">
-		
-			<button class="buttonPreviousMonth" align = "left" ><span>Previous Month </span></button>
-			
-		</div>
-		
-	</div>
 
-<div class="selectorRight">
-Pick A View
-	<button class = "submit" id="button_year">YEAR</button>
+<div>
+	<button class = "year"  onClick="toggleYearView(table)">YEAR</button>
 <br><br>
-	<button class = "submit">MONTH</button>
+	<button class = "month" onClick="toggleMonthView(month_table)">MONTH</button>
 <br><br>
-	<button class = "submit">WEEK</button>
+	<button class = "week">WEEK</button>
 	
 </div>
 
-<br><br><br>
 
-<table  id="month_table" align= "center"  width = "75%" height = "75%" >  
+
+<table width = "75%" height="75%" align="center" id="table"  style="display:block" >
+
+
+	<tr>
+		<th class = "yearView" colspan="7" align = "right"> August 2016 </th>
+		<th class = "yearView" colspan="7" align = "right"> September 2016</th>
+		<th class = "yearView" colspan="7" align = "right"> October 2016 </th>
+	</tr>
+	
+	<tr> 
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDaysDiffMonth"> 31		</td>
+		<td class = "yearViewDays"> 1		</td>
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3		</td>
+		<td class = "yearViewDays"> 4 		</td>
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 28		</td>
+		<td class = "yearViewDaysDiffMonth"> 29		</td>
+		<td class = "yearViewDaysDiffMonth"> 30		</td>
+		<td class = "yearViewDaysDiffMonth"> 31		</td>
+		<td class = "yearViewDays"> 1 		</td>
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 25		</td>
+		<td class = "yearViewDaysDiffMonth"> 26		</td>
+		<td class = "yearViewDaysDiffMonth"> 27		</td>
+		<td class = "yearViewDaysDiffMonth"> 28		</td>
+		<td class = "yearViewDaysDiffMonth"> 29 	</td>
+		<td class = "yearViewDaysDiffMonth"> 30		</td>
+		<td class = "yearViewDays"> 1		</td>
+	</tr>
+
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10		</td>
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12		</td>
+		<td class = "yearViewDays"> 13		</td>
+	
+		<td class = "yearViewDays"> 4		</td>
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6		</td>
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9    	</td>
+		<td class = "yearViewDays"> 10		</td>
+	
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3		</td>
+		<td class = "yearViewDays"> 4		</td>
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6	 	</td>
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20		</td>
+	
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12		</td>
+		<td class = "yearViewDays"> 13		</td>
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+	
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10		</td>
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12		</td>
+		<td class = "yearViewDays"> 13 	</td>
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+		<td class = "yearViewDays"> 25 	</td>
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27		</td>
+	
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20		</td>
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22 		</td>
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+	
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20 	</td>
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29		</td>
+		<td class = "yearViewDays"> 30		</td>
+		<td class = "yearViewDays"> 31		</td>
+		<td class = "yearViewDaysDiffMonth"> 1 		</td>
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+	
+		<td class = "yearViewDays"> 25		</td>
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27		</td>
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29 	</td>
+		<td class = "yearViewDays"> 30		</td>
+		<td class = "yearViewDaysDiffMonth"> 1		</td>
+	
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+		<td class = "yearViewDays"> 25		</td>
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27 	</td>
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+		<td class = "yearViewDaysDiffMonth"> 8 		</td>
+		<td class = "yearViewDaysDiffMonth"> 9		</td>
+		<td class = "yearViewDaysDiffMonth"> 10		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6 		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+		<td class = "yearViewDaysDiffMonth"> 8		</td>
+	
+		<td class = "yearViewDays"> 30		</td>
+		<td class = "yearViewDays"> 31		</td>
+		<td class = "yearViewDaysDiffMonth"> 1		</td>
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3	 	</td>
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+	</tr>
+<!------------------------------------------------------------------> 
+	<tr>
+		<th class = "yearView" colspan="7" align = "right"> November 2016</th>
+		<th class = "yearView" colspan="7" align = "right"> December 2016</th>
+		<th class = "yearView" colspan="7" align = "right"> January 2017 </th>
+	</tr>
+	
+	<tr> 
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDaysDiffMonth"> 30		</td>
+		<td class = "yearViewDaysDiffMonth"> 31		</td>
+		<td class = "yearViewDays"> 1		</td>
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3 		</td>
+		<td class = "yearViewDays"> 4		</td>
+		<td class = "yearViewDays"> 5		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 27		</td>
+		<td class = "yearViewDaysDiffMonth"> 28		</td>
+		<td class = "yearViewDaysDiffMonth"> 29		</td>
+		<td class = "yearViewDaysDiffMonth"> 30		</td>
+		<td class = "yearViewDays"> 1 		</td>
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3		</td>
+	
+		<td class = "yearViewDays"> 1		</td>
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3		</td>
+		<td class = "yearViewDays"> 4		</td>
+		<td class = "yearViewDays"> 5	 	</td>
+		<td class = "yearViewDays"> 6		</td>
+		<td class = "yearViewDays"> 7		</td>
+	</tr>
+
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 6		</td>
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10		</td>
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12		</td>
+	
+		<td class = "yearViewDays"> 4		</td>
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6		</td>
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9    	</td>
+		<td class = "yearViewDays"> 10		</td>
+	
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10		</td>
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12	 	</td>
+		<td class = "yearViewDays"> 13		</td>
+		<td class = "yearViewDays"> 14		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 13		</td>
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19		</td>
+	
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12		</td>
+		<td class = "yearViewDays"> 13		</td>
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+	
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19 	</td>
+		<td class = "yearViewDays"> 20		</td>
+		<td class = "yearViewDays"> 21		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 20		</td>
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24 	</td>
+		<td class = "yearViewDays"> 25		</td>
+		<td class = "yearViewDays"> 26		</td>
+	
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20		</td>
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+	
+		<td class = "yearViewDays"> 22		</td>
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+		<td class = "yearViewDays"> 25		</td>
+		<td class = "yearViewDays"> 26 	</td>
+		<td class = "yearViewDays"> 27		</td>
+		<td class = "yearViewDays"> 28		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 27		</td>
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29		</td>
+		<td class = "yearViewDays"> 30		</td>
+		<td class = "yearViewDaysDiffMonth"> 1 		</td>
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+	
+		<td class = "yearViewDays"> 25		</td>
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27		</td>
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29 	</td>
+		<td class = "yearViewDays"> 30		</td>
+		<td class = "yearViewDays"> 31		</td>
+	
+		<td class = "yearViewDays"> 29		</td>
+		<td class = "yearViewDays"> 30		</td>
+		<td class = "yearViewDays"> 31		</td>
+		<td class = "yearViewDaysDiffMonth"> 1		</td>
+		<td class = "yearViewDaysDiffMonth"> 2 		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+		<td class = "yearViewDaysDiffMonth"> 8 		</td>
+		<td class = "yearViewDaysDiffMonth"> 9		</td>
+		<td class = "yearViewDaysDiffMonth"> 10		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 1		</td>
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+		<td class = "yearViewDaysDiffMonth"> 5 		</td>
+		<td class = "yearViewDaysDiffMonth"> 6		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+		<td class = "yearViewDaysDiffMonth"> 8		</td>
+		<td class = "yearViewDaysDiffMonth"> 9	 	</td>
+		<td class = "yearViewDaysDiffMonth"> 10		</td>
+		<td class = "yearViewDaysDiffMonth"> 11		</td>
+	</tr>
+
+<!------------------------------------------------------------------------------>
+	
+	<tr>
+		<th class = "yearView" colspan="7" align = "right"> February 2017</th>
+		<th class = "yearView" colspan="7" align = "right"> March 2017 </th>
+		<th class = "yearView" colspan="7" align = "right"> April 2017 </th>
+	</tr>
+	
+	<tr> 
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDaysDiffMonth"> 29		</td>
+		<td class = "yearViewDaysDiffMonth"> 30		</td>
+		<td class = "yearViewDaysDiffMonth"> 31		</td>
+		<td class = "yearViewDays"> 1		</td>
+		<td class = "yearViewDays"> 2 		</td>
+		<td class = "yearViewDays"> 3		</td>
+		<td class = "yearViewDays"> 4		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 26		</td>
+		<td class = "yearViewDaysDiffMonth"> 27		</td>
+		<td class = "yearViewDaysDiffMonth"> 28		</td>
+		<td class = "yearViewDays"> 1		</td>
+		<td class = "yearViewDays"> 2 		</td>
+		<td class = "yearViewDays"> 3		</td>
+		<td class = "yearViewDays"> 4		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 26		</td>
+		<td class = "yearViewDaysDiffMonth"> 27		</td>
+		<td class = "yearViewDaysDiffMonth"> 28		</td>
+		<td class = "yearViewDaysDiffMonth"> 29		</td>
+		<td class = "yearViewDaysDiffMonth"> 30	 	</td>
+		<td class = "yearViewDaysDiffMonth"> 31		</td>
+		<td> 1		</td>
+	</tr>
+
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6		</td>
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10		</td>
+		<td class = "yearViewDays"> 11		</td>
+	
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6		</td>
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10    	</td>
+		<td class = "yearViewDays"> 11		</td>
+	
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3		</td>
+		<td class = "yearViewDays"> 4		</td>
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6	 	</td>
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 12		</td>
+		<td class = "yearViewDays"> 13		</td>
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+	
+		<td class = "yearViewDays"> 12		</td>
+		<td class = "yearViewDays"> 13		</td>
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+	
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10		</td>
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12		</td>
+		<td class = "yearViewDays"> 13 	</td>
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td  class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20		</td>
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+		<td class = "yearViewDays"> 23 	</td>
+		<td class = "yearViewDays"> 24		</td>
+		<td class = "yearViewDays"> 25		</td>
+	
+		<td class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20		</td>
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+		<td class = "yearViewDays"> 25		</td>
+	
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20 	</td>
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27		</td>
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDaysDiffMonth"> 1		</td>
+		<td class = "yearViewDaysDiffMonth"> 2 		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+	
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27		</td>
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29		</td>
+		<td class = "yearViewDays"> 30 	</td>
+		<td class = "yearViewDays"> 31		</td>
+		<td class = "yearViewDaysDiffMonth"> 1		</td>
+	
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+		<td class = "yearViewDays"> 25		</td>
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27 	</td>
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29		</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+		<td class = "yearViewDaysDiffMonth"> 8		</td>
+		<td class = "yearViewDaysDiffMonth"> 9 		</td>
+		<td class = "yearViewDaysDiffMonth"> 10		</td>
+		<td class = "yearViewDaysDiffMonth"> 11		</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6 		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+		<td class = "yearViewDaysDiffMonth"> 8		</td>
+	
+		<td class = "yearViewDays"> 		 30		</td>
+		<td class = "yearViewDaysDiffMonth"> 1		</td>
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+		<td class = "yearViewDaysDiffMonth"> 4	 	</td>
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6		</td>
+	</tr>
+	
+	<tr>
+		<th  colspan="7" align = "right"> . </th>
+		<th class = "yearView" colspan="7" align = "right"> May 2017 </th>
+		<th  colspan="7" align = "right"> . </th>
+	</tr>
+	
+	<tr > 
+		<td> .			</td>
+		<td> .			</td>
+		<td> .			</td>
+		<td> .			</td>
+		<td> .	 		</td>
+		<td> .			</td>
+		<td> .			</td>
+	
+		<td class = "yearViewWeekday"> SUN		</td>
+		<td class = "yearViewWeekday"> MON		</td>
+		<td class = "yearViewWeekday"> TUE		</td>
+		<td class = "yearViewWeekday"> WED		</td>
+		<td class = "yearViewWeekday"> THU 	</td>
+		<td class = "yearViewWeekday"> FRI		</td>
+		<td class = "yearViewWeekday"> SAT		</td>
+	
+		<td> .			</td>
+		<td> .			</td>
+		<td> .			</td>
+		<td> .			</td>
+		<td> .	 		</td>
+		<td> .			</td>
+		<td> .			</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 30		</td>
+		<td class = "yearViewDays"> 1		</td>
+		<td class = "yearViewDays"> 2		</td>
+		<td class = "yearViewDays"> 3		</td>
+		<td class = "yearViewDays"> 4 		</td>
+		<td class = "yearViewDays"> 5		</td>
+		<td class = "yearViewDays"> 6		</td>
+	
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	</tr>
+
+	<tr class = "yearViewWeek">
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	
+		<td class = "yearViewDays"> 7		</td>
+		<td class = "yearViewDays"> 8		</td>
+		<td class = "yearViewDays"> 9		</td>
+		<td class = "yearViewDays"> 10		</td>
+		<td class = "yearViewDays"> 11		</td>
+		<td class = "yearViewDays"> 12    	</td>
+		<td class = "yearViewDays"> 13		</td>
+	
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	
+		<td class = "yearViewDays"> 14		</td>
+		<td class = "yearViewDays"> 15		</td>
+		<td class = "yearViewDays"> 16		</td>
+		<td class = "yearViewDays"> 17		</td>
+		<td class = "yearViewDays"> 18		</td>
+		<td class = "yearViewDays"> 19		</td>
+		<td class = "yearViewDays"> 20		</td>
+	
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	
+		<td class = "yearViewDays"> 21		</td>
+		<td class = "yearViewDays"> 22		</td>
+		<td class = "yearViewDays"> 23		</td>
+		<td class = "yearViewDays"> 24		</td>
+		<td class = "yearViewDays"> 25 		</td>
+		<td class = "yearViewDays"> 26		</td>
+		<td class = "yearViewDays"> 27		</td>
+	
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	
+		<td class = "yearViewDays"> 28		</td>
+		<td class = "yearViewDays"> 29		</td>
+		<td class = "yearViewDays"> 30		</td>
+		<td class = "yearViewDays"> 31		</td>
+		<td class = "yearViewDaysDiffMonth"> 1	 	</td>
+		<td class = "yearViewDaysDiffMonth"> 2		</td>
+		<td class = "yearViewDaysDiffMonth"> 3		</td>
+	
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek" .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	</tr>
+	
+	<tr class = "yearViewWeek">
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	
+		<td class = "yearViewDaysDiffMonth"> 4		</td>
+		<td class = "yearViewDaysDiffMonth"> 5		</td>
+		<td class = "yearViewDaysDiffMonth"> 6		</td>
+		<td class = "yearViewDaysDiffMonth"> 7		</td>
+		<td class = "yearViewDaysDiffMonth"> 8 		</td>
+		<td class = "yearViewDaysDiffMonth"> 9		</td>
+		<td class = "yearViewDaysDiffMonth"> 10		</td>
+	
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .	 		</td>
+		<td class = "yearViewWeek"> .			</td>
+		<td class = "yearViewWeek"> .			</td>
+	</tr>
+
+</table>
+
+<table  id="month_table" align= "center"  width = "75%" height = "75%" style="display:none" >  
 
 	<tr>
 		<th class = "monthHeader" colspan="7" align = "right"><h1> MONTH YEAR </h1></th>
@@ -119,6 +861,12 @@ Pick A View
 	
 </table>
 
+	<div class="rightButton">
+	<a href= findNextMonth() ><button class="buttonNextMonth" align = "center" id="nextMonth" style="display:none"><span>Next Month </span></button></a>
+</div>
+<div class="leftButton">
+	<a href= findPreviousMonth() ><button class="buttonPreviousMonth" align = "center" id="prevMonth" style="display:none"><span>Previous Month </span></button></a>
+</div>
 <!-- The Modal -->
 <div id="dayModal" class="modal">
 

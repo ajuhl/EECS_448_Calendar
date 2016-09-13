@@ -8,7 +8,6 @@ th.monthHeader {
 	background-color: #800000;
 	font-size: 36px;
 	margin-right: 50%;
-	text-align: center;
 }
 
 tr.weekdays {
@@ -25,18 +24,115 @@ tr.week  {
 	padding: 0px;	
 }
 
-button.submit{
-	font-weight: bold;
+td.days {
+	border-width: 20px;
+	border-radius:20% 0%;
+	border: 5px solid white;
+	
+}
+
+td.daysDiffMonth {
+	border-width: 20px;
+	border-radius:20% 0%;
+	border: 5px solid white;
+	color: #C8C8C8 ;
+}
+
+td.days:hover { 
+	background-color: #A0A9A9 ;
+	transform: translateY(-4px);
+}
+
+body.yearView{
+	background: white;
+	font-family: arial black; 
+	color: white;
+}
+
+th.yearView {
+	background-color: #800000;
 	font-size: 24px;
-	border-bottom: 3px solid red;
-	border-left: 3px solid red;
+	margin-right: 50%;
+}
+
+td.yearViewWeekday {
+	background-color: black;
+	text-align: center;
+	font-size: 12px;
+}
+
+tr.yearViewweek  {
+	background-color: #A0A0A0 ;
+	color: white;
+	font-weight: bold;	
+	padding: 0px;	
+}
+
+td.yearViewweek  {
+	background-color: white ;
+	color: white;
+	font-weight: bold;	
+	padding: 0px;	
+}
+
+td.yearViewDaysDiffMonth {
+	border-width: 5px;
+	border-radius:20% 0%;
+	border: 1px solid white;
+	color: #C8C8C8 ;
+}
+
+td.yearViewdays {
+	border-width: 5px;
+	border-radius:20% 0%;
+	border: 1px solid white;
+	
+}
+
+button.week{
+	font-weight: bold;
+	font-size: 18px;
+	border: none;
 	color: white;
 	background-color: black;
 	text-align: center;
-	width: 100%;
+	width: 15%;
+	margin-left: 5%;
+	position: absolute;
+	top: 5%;
+	left: 13%;
+	padding: 0px;
 	
+}
+
+button.month{
+	font-weight: bold;
+	font-size: 18px;
+	border: none; 
+	color: white;
+	background-color: black;
+	text-align: center;
+	width: 15%;
+	margin-left: 5%;
+	position: absolute;
+	top: 5%;
+	left: 38%;
+	padding: 0px;
 	
-	
+}
+button.year{
+	font-weight: bold;
+	font-size: 18px;
+	border: none;
+	color: white;
+	background-color: black;
+	text-align: center;
+	width: 15%;
+	margin-left: 5%;
+	position: absolute;
+	top: 5%;
+	left: 63%;
+	padding: 0px;
 }
 
 textarea{
@@ -58,47 +154,6 @@ select{
 	text-align: center;
 }
 
-select.myMonth{
-	width: 60%;
-}
-select.myDay{
-	width: 30%;
-}
-
-
-.selectorLeft
-{
-	text-align: center;
-  position: fixed;
-  top: 7.5%;
-  left: 2%;
-  bottom: 8.5%;
-  width: 10%;
-	color: black;
-  background-color: white;
- 
-  
-}
-
-.selectorRight
-{
-  position: fixed;
-  top: 7.5%;
-  right: 2%;
-  bottom: 8.5%;
-  width: 10%;
-  color: black;
-  background-color: white;
-  text-align: center;
-  
-}
-
-td.days {
-	border-width: 20px;
-	border-radius:20% 0%;
-	border: 5px solid white;
-	
-}
 
 td.daysDiffMonth {
 	border-width: 20px;
@@ -107,16 +162,16 @@ td.daysDiffMonth {
 	color: #C8C8C8 ;
 }
 
-
 .buttonNextMonth {
   background-color: #800000;
   border: 5px solid white;
   color: #FFFFFF;
   text-align: center;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
   width: 75%;
   cursor: pointer;
+  
 }
 
 .buttonNextMonth span {
@@ -139,7 +194,7 @@ td.daysDiffMonth {
   border: 5px solid white;
   color: #FFFFFF;
   text-align: center;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
   width: 75%;
   cursor: pointer;
@@ -197,6 +252,37 @@ td.daysDiffMonth {
 .leftButton {
 	text-align: center;
 }
+
+.buttonNoMonth {
+  display: inline-block;
+  background-color: #C8C8C8 ;
+  border: 5px solid white;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  width: 75%;
+  cursor: pointer;
+  
+}
+
+.buttonNoMonth span {
+  cursor: pointer;
+  display: inline-block;
+  transition: 1.0s;
+}
+
+.buttonNoMonth span:after {
+  transition: 0.5s;
+}
+
+.buttonNoMonth:hover span {
+  
+  
+}
+
+
+
 
 td.days:hover { 
 	background-color: #A0A9A9 ;
