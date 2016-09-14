@@ -196,6 +196,7 @@ function getBrowserDate(day,month,year){
 
 		//if no browser storage do something
 	}
+}
 
 function getEvents(month,day){
 	var xmlhttp = new XMLHttpRequest();
