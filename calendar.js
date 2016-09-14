@@ -20,7 +20,7 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		var year = date.getFullYear();
 		
 		setBrowserDate(day,month,year);
-		
+		getEvents(month,day);
 		
 	});
 	  
@@ -197,12 +197,12 @@ function getBrowserDate(day,month,year){
 		//if no browser storage do something
 	}
 }
-
+//information for this funciton from http://www.w3schools.com/ajax/default.asp
 function getEvents(month,day){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("demo").innerHTML = this.responseText;
+     document.getElementById("viewEvent").innerHTML = this.responseText;
     	}
   };
   xhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
