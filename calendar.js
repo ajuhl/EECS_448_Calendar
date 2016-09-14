@@ -74,13 +74,36 @@ function generateMonthView(month, year){
 	}
 	
 	var number = 1;
-	for(i=first_day_of_week;i< (first_day_of_week + getDaysFromMonthNum(dummy_date.getMonth())); i++){
+	last_index = first_day_of_week + getDaysFromMonthNum(dummy_date.getMonth());
+	var table_id = "";
+	
+	for(i=first_day_of_week;i< last_index; i++){
 		
-		var table_id = "#day_".concat(i);
+		table_id = "#day_".concat(i);
 		
 		$(table_id).text(number);
 		number++;
 	} 
+	
+	if (last_index < 36) {
+		
+		$('#week_5').hide();
+	}
+	else {
+		$('#week_5').show();
+	}
+	
+	
+	number = getDaysFromMonthNum(dummy_date.getMonth()-1);
+	
+	for(i=first_day_of_week-1;i>=0;i--) {
+		
+		table_id = "#day_".concat(i);
+		$(table_id).text(number);
+		number--;
+	}
+	
+	
 
 }
 

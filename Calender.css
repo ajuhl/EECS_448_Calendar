@@ -8,6 +8,7 @@ th.monthHeader {
 	background-color: #800000;
 	font-size: 36px;
 	margin-right: 50%;
+	text-align: center;
 }
 
 tr.weekdays {
