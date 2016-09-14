@@ -15,6 +15,12 @@ $( document ).ready(function() { //initiated when the page is first loaded
 
 		modal.style.display = "block";
 		
+		var day = parseInt($(this).text());
+		var month = date.getMonth();
+		var year = date.getFullYear();
+		
+		setBrowserDate(day,month,year);
+		
 		
 	});
 	  
@@ -41,7 +47,6 @@ $( document ).ready(function() { //initiated when the page is first loaded
 
 		date.setMonth(date.getMonth()+1);
 		generateMonthView(date.getMonth(), date.getFullYear());
-		$('.days').css('color','white');
 			
 	});
 	
@@ -51,7 +56,6 @@ $( document ).ready(function() { //initiated when the page is first loaded
 
 		date.setMonth(date.getMonth()-1);
 		generateMonthView(date.getMonth(), date.getFullYear());
-		$('.days').css('color','white');
 			
 	});
 	  
@@ -70,6 +74,7 @@ function generateMonthView(month, year){
 		var table_id = "#day_".concat(i);
 		
 		$(table_id).text("");
+		$(table_id).css('color','white');
 		number++;
 	}
 	
@@ -93,13 +98,16 @@ function generateMonthView(month, year){
 		$('#week_5').show();
 	}
 	
+	previous_month = dummy_date.getMonth()-1;
+	if(previous_month < 0){previous_month = 11;}
+	number = getDaysFromMonthNum(previous_month);
 	
-	number = getDaysFromMonthNum(dummy_date.getMonth()-1);
 	
 	for(i=first_day_of_week-1;i>=0;i--) {
 		
 		table_id = "#day_".concat(i);
 		$(table_id).text(number);
+		$(table_id).css('color','#C8C8C8');
 		number--;
 	}
 	
@@ -120,6 +128,11 @@ function getMonthFromNum(num){
 function getDaysFromMonthNum(num){
 	
 	return [31,28,31,30,31,30,31,31,30,31,30,31][num];
+}
+
+function getNumFromMonth(month){
+	
+	return ['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(month);
 }
 
 function toggleYearView(year) {
@@ -150,4 +163,37 @@ function toggleMonthView(month) {
 	y.style.display = "none";
 	      
     return;
+}
+
+//Information on browser storage was found here: http://www.w3schools.com/html/html5_webstorage.asp
+function setBrowserDate(day,month,year){
+	
+	if (typeof(Storage) !== "undefined") {
+		
+		localStorage.setItem("day", day.toString());
+		localStorage.setItem("month", month.toString());
+		localStorage.setItem("year", year.toString());
+	} 
+	else {
+		
+		//if no browser storage do something
+	}
+}
+function getBrowserDate(day,month,year){
+	
+	
+	if (typeof(Storage) !== "undefined") {
+
+		var day = localStorage.getItem("day", day);
+		var month = localStorage.getItem("month", month);
+		var year = localStorage.getItem("year", year);
+		
+		var date = new Date(year, month, day, 0, 0, 0, 0);
+		
+		return date;
+	} 
+	else {
+
+		//if no browser storage do something
+	}
 }
