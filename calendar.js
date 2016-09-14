@@ -162,3 +162,14 @@ function getEvents(month,day){
   xhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
   xhttp.send();
 }
+
+function postEvent(month,day,event){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    	}
+ 	 };
+ 	xhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
+  	xhttp.send();
+}
