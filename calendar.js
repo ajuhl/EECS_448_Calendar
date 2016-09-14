@@ -142,7 +142,7 @@ function toggleYearView(year) {
 	var pmm =  document.getElementById('prevMonth'); 
 	var moo = document.getElementById('month_table');
     
-   	t.style.display = "block";
+   	t.style.display = "table";
 	moo.style.display = 'none';
 	pmm.style.display = 'none';
 	nmm.style.display = 'none';
@@ -157,7 +157,7 @@ function toggleMonthView(month) {
 	var pm =  document.getElementById('prevMonth');
 	var y = document.getElementById('table');
     		
-	mo.style.display = 'block';
+	mo.style.display = 'table';
 	pm.style.display = 'inline';
 	nm.style.display = 'inline';
 	y.style.display = "none";
