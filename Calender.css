@@ -329,3 +329,12 @@ td.days:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* scrolable event view in the modal */
+div.scroll {
+    margin: auto;
+    background-color: #800000;
+    width: 80%;
+    /*height: 200px;*/
+    overflow: scroll;
+}

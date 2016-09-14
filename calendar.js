@@ -21,7 +21,6 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		
 		setBrowserDate(day,month,year);
 		getEvents(month,day);
-		
 	});
 	  
 	$('.close').click(function(e){
@@ -205,7 +204,7 @@ function getEvents(month,day){
      document.getElementById("viewEvent").innerHTML = this.responseText;
     	}
   };
-  xhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
+  xmlhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
   xhttp.send();
 }
 
@@ -216,6 +215,6 @@ function postEvent(month,day,event){
      document.getElementById("demo").innerHTML = this.responseText;
     	}
  	 };
- 	xhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
-  	xhttp.send();
+ 	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
+  	xmlhttp.send();
 }
