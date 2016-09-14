@@ -8,5 +8,6 @@ if($conn->connect_error){
 
 $month = $_GET['month'];
 
-$sql = "SELECT count(*) FROM calendar WHERE month like '$month'";
+$sql = "SELECT day, count(*) FROM calendar WHERE month like '$month'";
+
 ?>
