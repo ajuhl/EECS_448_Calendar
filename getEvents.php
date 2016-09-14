@@ -10,8 +10,10 @@ $day = $_GET['day'];
 
 $sql = "SELECT * FROM calendar WHERE month like '$month' and day like '$day'";
 $result = $conn->query($sql);
-$row = $result->fetch_assoc();
-var_dump($row);
+//$row = $result->fetch_assoc();
+while($row = $result->fetch_assoc()){
+	echo "<p>" . $row['event'] . "</p>";
+}
 
 $conn->close();
 ?>
