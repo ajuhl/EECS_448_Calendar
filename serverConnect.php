@@ -1,4 +1,5 @@
 <?php
+//database information
 $servername = "";
 $username = "";
 $password = "";
@@ -11,5 +12,5 @@ $conn = mysqli_connect($servername, $username, $password, $db_name);
 if($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
-echo "connection successful";
+
 ?>
