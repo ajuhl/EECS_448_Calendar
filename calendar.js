@@ -143,9 +143,9 @@ function toggleYearView(year) {
 	var moo = document.getElementById('month_table');
     
    	t.style.display = "block";
-	moo.style.display = 'none'
-	pmm.style.display = 'none'
-	nmm.style.display = 'none'
+	moo.style.display = 'none';
+	pmm.style.display = 'none';
+	nmm.style.display = 'none';
 	
 	return;
 }
@@ -158,8 +158,8 @@ function toggleMonthView(month) {
 	var y = document.getElementById('table');
     		
 	mo.style.display = 'block';
-	pm.style.display = 'inline'
-	nm.style.display = 'inline'
+	pm.style.display = 'inline';
+	nm.style.display = 'inline';
 	y.style.display = "none";
 	      
     return;
@@ -196,4 +196,25 @@ function getBrowserDate(day,month,year){
 
 		//if no browser storage do something
 	}
+
+function getEvents(month,day){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    	}
+  };
+  xhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
+  xhttp.send();
+}
+
+function postEvent(month,day,event){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    	}
+ 	 };
+ 	xhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
+  	xhttp.send();
 }
