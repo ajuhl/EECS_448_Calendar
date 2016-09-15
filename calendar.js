@@ -132,17 +132,38 @@ function getNumFromMonth(month){
 	return ['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(month);
 }
 
-function toggleYearView(year) {
+function toggleYearView(a, b, c, d, e, f, g, h, i, j) {
     
-    var t = document.getElementById('table');
+    
     var nmm =  document.getElementById('nextMonth');
 	var pmm =  document.getElementById('prevMonth'); 
 	var moo = document.getElementById('month_table');
+	var au =  document.getElementById('august');
+	var sep =  document.getElementById('september');
+	var oc =  document.getElementById('october');
+	var no =  document.getElementById('november');
+	var de =  document.getElementById('december');
+	var ja =  document.getElementById('january');
+	var fe =  document.getElementById('february');
+	var mar =  document.getElementById('march');
+	var ap =  document.getElementById('april');
+	var ma =  document.getElementById('may');
+    		
     
-   	t.style.display = "table";
+
 	moo.style.display = 'none';
 	pmm.style.display = 'none';
 	nmm.style.display = 'none';
+	au.style.display = 'table';
+	sep.style.display = 'table';
+	oc.style.display = 'table';
+	no.style.display = 'table';
+	de.style.display = 'table';
+	ja.style.display = 'table';
+	fe.style.display = 'table';
+	mar.style.display = 'table';
+	ap.style.display = 'table';
+	ma.style.display = 'table';
 	
 	return;
 }
@@ -152,12 +173,31 @@ function toggleMonthView(month) {
     var mo = document.getElementById('month_table');
     var nm =  document.getElementById('nextMonth');
 	var pm =  document.getElementById('prevMonth');
-	var y = document.getElementById('table');
+	var aug =  document.getElementById('august');
+	var sep =  document.getElementById('september');
+	var oct =  document.getElementById('october');
+	var nov =  document.getElementById('november');
+	var dec =  document.getElementById('december');
+	var jan =  document.getElementById('january');
+	var feb =  document.getElementById('february');
+	var mar =  document.getElementById('march');
+	var apr =  document.getElementById('april');
+	var may =  document.getElementById('may');
     		
 	mo.style.display = 'table';
 	pm.style.display = 'inline';
 	nm.style.display = 'inline';
-	y.style.display = "none";
+	aug.style.display = 'none';
+	sep.style.display = 'none';
+	oct.style.display = 'none';
+	nov.style.display = 'none';
+	dec.style.display = 'none';
+	jan.style.display = 'none';
+	feb.style.display = 'none';
+	mar.style.display = 'none';
+	apr.style.display = 'none';
+	may.style.display = 'none';
+	
 	      
     return;
 }
@@ -256,4 +296,77 @@ function populateMonthArray(month, year){
 		}
 	}
 	return array;
+}
+
+function LoadMonth(id, month,year) {
+	
+	var d = new Date(year, month - 1, 0);  // Set to the first day of the month (month is internally stored as 0-11)
+
+	var daysInMonth = GetDaysInMonth(d);  // Get the number of days in the month
+	var mon = d.getMonth();
+	var htmlContent = "";
+	
+	// Define table
+
+    htmlContent += "<table width = '25%' height='25%' align='center' id='table' style='display:none'>";
+	
+	// Display Month, Year
+
+	htmlContent += "<th class='yearView' colspan='7' >" + GetMonthName(d) + "</th>";
+	
+	// Build Header
+	
+	htmlContent += "<tr>";
+	htmlContent += "<td class = 'yearViewWeekday'>Sun</td>";
+	htmlContent += "<td class = 'yearViewWeekday'>Mon</td>";
+	htmlContent += "<td class = 'yearViewWeekday'>Tue</td>";
+	htmlContent += "<td class = 'yearViewWeekday'>Wed</td>";
+	htmlContent += "<td class = 'yearViewWeekday'>Thu</td>";
+	htmlContent += "<td class = 'yearViewWeekday'>Fri</td>";
+	htmlContent += "<td class = 'yearViewWeekday'>Sat</td>";
+	htmlContent += "</tr>";
+		
+	// Build Detail
+
+	htmlContent += "<tr class='yearViewweek'>";
+	
+	d.setDate(1);
+	
+	for (var i = 0; i < d.getDay(); i++) {  // Starting day of the week for the 1st of the month - Sunday = 0 ... Saturday = 6
+		htmlContent += "<td></td>";
+	}
+	
+	// Load actual days of the month
+
+	while(d.getMonth() == mon) {
+		htmlContent += "<td class='yearViewdays'>" + d.getDate() + "</td>";
+
+		if (d.getDay() % 7 == 6) {
+			htmlContent += "</tr><tr class='yearViewweek'>";
+		};
+ 
+		d.setDate(d.getDate()+1);
+	};
+	
+	htmlContent += "</tr>";
+	
+	htmlContent += "</table>";
+	
+	document.getElementById(id).innerHTML = htmlContent;
+}
+
+function GetDaysInMonth(d) {
+	if (d.getFullYear() % 4 == 0) {
+		var daysInMonth = [31,29,31,30,31,30,31,31,30,31,31,31];
+	} else {
+		var daysInMonth = [31,28,31,30,31,30,31,31,30,31,31,31];
+	};
+	
+	return daysInMonth[d.getMonth()];
+}
+
+function GetMonthName(d){
+	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+	return monthNames[d.getMonth()];
 }
