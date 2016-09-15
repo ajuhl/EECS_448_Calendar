@@ -6,8 +6,7 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	
 	generateMonthView(date.getMonth(), date.getFullYear());
 	
-	month_view = [];
-	
+	var month_view = [];
 	
 	$('.days').click(function(e){
 		
@@ -68,16 +67,16 @@ function generateMonthView(month, year){
 	
 	$('.monthHeader').text(getMonthFromNum(month) + " " + year);
 	
-	var display_dates = populateMonthArray(month, year)
+	month_view = populateMonthArray(month, year)
 	var table_id = "";
 	var print_white = false;
 	
-	for(var i = 0; i < display_dates.length; i++ ){
+	for(var i = 0; i < month_view.length; i++ ){
 		
 		table_id = "#day_".concat(i);
-		$(table_id).text(display_dates[i]);
+		$(table_id).text(month_view[i]);
 		
-		if(display_dates[i] == 1){
+		if(month_view[i] == 1){
 			
 			print_white = !print_white;
 		}
@@ -92,7 +91,7 @@ function generateMonthView(month, year){
 		
 	}
 	
-	if( display_dates.length <= 35){
+	if( month_view.length <= 35){
 		
 		$('#week_5').hide();
 	}
@@ -230,7 +229,6 @@ function populateMonthArray(month, year){
 		array.unshift(num);
 		num--;
 	}
-	console.log(array.length);
 	num = 1;
 	if(array.length >= 36){
 		
@@ -247,11 +245,6 @@ function populateMonthArray(month, year){
 			array.push(num);
 			num++;
 		}
-	}
-	
-	for(var i = 0; i<array.length;i++){
-		
-		console.log(array[i]);
 	}
 	return array;
 }
