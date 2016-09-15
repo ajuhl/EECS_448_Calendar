@@ -6,6 +6,9 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	
 	generateMonthView(date.getMonth(), date.getFullYear());
 	
+	month_view = [];
+	
+	
 	$('.days').click(function(e){
 		
 		e.preventDefault();
@@ -63,55 +66,42 @@ $( document ).ready(function() { //initiated when the page is first loaded
 
 function generateMonthView(month, year){
 	
-	var dummy_date = new Date(year, month, 1, 0, 0, 0, 0);
-	var first_day_of_week = dummy_date.getDay();
+	$('.monthHeader').text(getMonthFromNum(month) + " " + year);
 	
-	$('.monthHeader').text(getMonthFromNum(dummy_date.getMonth()) + " " + dummy_date.getFullYear());
-	
-	for(i=0;i<=41;i++){
-		
-		var table_id = "#day_".concat(i);
-		
-		$(table_id).text("");
-		$(table_id).css('color','white');
-		number++;
-	}
-	
-	var number = 1;
-	last_index = first_day_of_week + getDaysFromMonthNum(dummy_date.getMonth());
+	var display_dates = populateMonthArray(month, year)
 	var table_id = "";
+	var print_white = false;
 	
-	for(i=first_day_of_week;i< last_index; i++){
+	for(var i = 0; i < display_dates.length; i++ ){
 		
 		table_id = "#day_".concat(i);
+		$(table_id).text(display_dates[i]);
 		
-		$(table_id).text(number);
-		number++;
-	} 
+		if(display_dates[i] == 1){
+			
+			print_white = !print_white;
+		}
+		
+		
+		if(print_white){
+			$(table_id).css('color','white');
+		}
+		else {
+			$(table_id).css('color','#C8C8C8');
+		}
+		
+	}
 	
-	if (last_index < 36) {
+	if( display_dates.length <= 35){
 		
 		$('#week_5').hide();
 	}
 	else {
+		
 		$('#week_5').show();
 	}
-	
-	previous_month = dummy_date.getMonth()-1;
-	if(previous_month < 0){previous_month = 11;}
-	number = getDaysFromMonthNum(previous_month);
-	
-	
-	for(i=first_day_of_week-1;i>=0;i--) {
-		
-		table_id = "#day_".concat(i);
-		$(table_id).text(number);
-		$(table_id).css('color','#C8C8C8');
-		number--;
-	}
-	
-	
 
+	
 }
 
 function getDayFromNum(num){
@@ -217,4 +207,51 @@ function postEvent(month,day,event){
  	 };
  	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
   	xmlhttp.send();
+}
+
+function populateMonthArray(month, year){
+	
+	var dummy_date = new Date(year, month, 1, 0, 0, 0, 0);
+	var first_day_of_week = dummy_date.getDay();
+	var last_index = first_day_of_week + getDaysFromMonthNum(month);
+	
+	var array = [];
+
+	var num = 1;
+	for(var i=first_day_of_week;i< last_index; i++){
+		
+		array.push(num);
+		num++
+	} 
+	
+	num = getDaysFromMonthNum(dummy_date.getMonth()-1);
+	for(var i=first_day_of_week-1; i>=0 ;i--) {
+		
+		array.unshift(num);
+		num--;
+	}
+	console.log(array.length);
+	num = 1;
+	if(array.length >= 36){
+		
+		for(var i = last_index + 1; i <= 45; i++ ){
+			
+			array.push(num);
+			num++;
+		}
+	}
+	else {
+		
+		for(var i = last_index + 1; i <= 35; i++){
+			
+			array.push(num);
+			num++;
+		}
+	}
+	
+	for(var i = 0; i<array.length;i++){
+		
+		console.log(array[i]);
+	}
+	return array;
 }
