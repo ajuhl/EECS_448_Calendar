@@ -30,6 +30,9 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			
 			setBrowserDate(day,month,year);
 			getEvents(month,day);
+			//fill the values for creating a new event on this day
+			document.getElementById("month_input").value = month;
+			document.getElementById("day_input").value = day;
 		}
 		
 	});
@@ -243,7 +246,7 @@ function getEvents(month,day){
     	}
   };
   xmlhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
-  xhttp.send();
+  xmlhttp.send();
 }
 
 function postEvent(month,day,event){
