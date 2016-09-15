@@ -300,7 +300,7 @@ function populateMonthArray(month, year){
 
 function LoadMonth(id, month,year) {
 	
-	var d = new Date(year, month - 1, 0);  // Set to the first day of the month (month is internally stored as 0-11)
+	var d = new Date(year, month, 0);  // Set to the first day of the month (month is internally stored as 0-11)
 
 	var daysInMonth = GetDaysInMonth(d);  // Get the number of days in the month
 	var mon = d.getMonth();
@@ -312,7 +312,7 @@ function LoadMonth(id, month,year) {
 	
 	// Display Month, Year
 
-	htmlContent += "<th class='yearView' colspan='7' >" + GetMonthName(d) + "</th>";
+	htmlContent += "<th class='yearView' colspan='7' >" + GetMonthName(d) + " " + year + "</th>";
 	
 	// Build Header
 	
@@ -333,7 +333,7 @@ function LoadMonth(id, month,year) {
 	d.setDate(1);
 	
 	for (var i = 0; i < d.getDay(); i++) {  // Starting day of the week for the 1st of the month - Sunday = 0 ... Saturday = 6
-		htmlContent += "<td></td>";
+		htmlContent += "<td class='yearViewdays'></td>";
 	}
 	
 	// Load actual days of the month
@@ -346,6 +346,18 @@ function LoadMonth(id, month,year) {
 		};
  
 		d.setDate(d.getDate()+1);
+	};
+	
+	if (d.getDay() != 0) {
+		for (var i = d.getDay(); i < 14; i++) {
+			htmlContent += "<td class='yearViewdays'></td>";
+			
+			if (d.getDay() % 7 == 6) {
+				htmlContent += "</tr class='yearViewweek'><tr>";
+			};
+ 
+			d.setDate(d.getDate()+1);	
+		};
 	};
 	
 	htmlContent += "</tr>";
