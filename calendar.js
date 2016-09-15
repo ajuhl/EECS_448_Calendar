@@ -31,6 +31,7 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			setBrowserDate(day,month,year);
 			getEvents(month,day);
 			//fill the values for creating a new event on this day
+			document.getElementById("event_input").value="";
 			document.getElementById("month_input").value = month;
 			document.getElementById("day_input").value = day;
 		}
