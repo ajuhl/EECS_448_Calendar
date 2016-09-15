@@ -152,8 +152,8 @@
     <div id="viewEvent" class ="scroll">
     	<h2>event info here</h2>
     </div>
-    <form action="postEvent.php">
-    	New Event: <input type="text" name="event" maxlength="255"><br>
+    <form action="javascript:" onsubmit="postEvent(this.month.value,this.day.value,this.event.value)">
+    	New Event: <input id="event_input" type="text" name="event" maxlength="255"><br>
     	<input id="month_input" type="hidden" name="month" value="0">
     	<input id="day_input" type="hidden" name="day" value= "0">
     	<input type="submit">

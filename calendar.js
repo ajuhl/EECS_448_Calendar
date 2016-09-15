@@ -251,11 +251,11 @@ function getEvents(month,day){
 
 function postEvent(month,day,event){
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("demo").innerHTML = this.responseText;
-    	}
- 	 };
+	// xmlhttp.onreadystatechange = function() {
+	// 	if (this.readyState == 4 && this.status == 200) {
+ //     document.getElementById("demo").innerHTML = this.responseText;
+ //    	}
+ // 	 };
  	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
   	xmlhttp.send();
 }
@@ -272,7 +272,7 @@ function populateMonthArray(month, year){
 	for(var i=first_day_of_week;i< last_index; i++){
 		
 		array.push(num);
-		num++
+		num++;
 	} 
 	
 	num = getDaysFromMonthNum(dummy_date.getMonth()-1);
