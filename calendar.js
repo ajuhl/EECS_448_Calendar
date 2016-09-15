@@ -11,18 +11,27 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	$('.days').click(function(e){
 		
 		e.preventDefault();
-
-		$('.days').css('color','white');
-		$(this).css('color', 'black');
-
-		modal.style.display = "block";
 		
-		var day = parseInt($(this).text());
-		var month = date.getMonth();
-		var year = date.getFullYear();
+		var found_string = $(this).attr('id');
+		var selected_index = parseInt( found_string.slice("day_".length , found_string.length) );
+		var selected_number = parseInt($(this).text());
 		
-		setBrowserDate(day,month,year);
-		getEvents(month,day);
+		if (Math.abs(selected_index - selected_number) < 7) {
+			
+			generateMonthView(date.getMonth(), date.getFullYear());
+		
+			$(this).css('color', 'black');
+
+			modal.style.display = "block";
+			
+			var day = parseInt($(this).text());
+			var month = date.getMonth();
+			var year = date.getFullYear();
+			
+			setBrowserDate(day,month,year);
+			getEvents(month,day);
+		}
+		
 	});
 	  
 	$('.close').click(function(e){
@@ -158,9 +167,9 @@ function setBrowserDate(day,month,year){
 	
 	if (typeof(Storage) !== "undefined") {
 		
-		localStorage.setItem("day", day.toString());
-		localStorage.setItem("month", month.toString());
-		localStorage.setItem("year", year.toString());
+		localStorage.setItem("day", day);
+		localStorage.setItem("month", month);
+		localStorage.setItem("year", year);
 	} 
 	else {
 		
