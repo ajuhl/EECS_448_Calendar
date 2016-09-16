@@ -89,7 +89,11 @@ td.yearViewdays {
 	border: 1px solid white;
 	
 }
-
+td.weekbtn{
+	border-width: 20px;
+	border-radius: 20% 0%;
+	border: 5px solid white;
+}
 button.week{
 	font-weight: bold;
 	font-size: 18px;
@@ -135,7 +139,15 @@ button.year{
 	left: 63%;
 	padding: 0px;
 }
-
+button.weekBtn{
+	display: inline-block;
+	width: 100%;
+	height: 100px;
+	font-weight: bold;
+	border-width: 20px;
+	border-radius:20% 0%;
+	border: 5px solid white;
+}
 textarea{
 	font-weight: bold;
 	font-size: 18px;

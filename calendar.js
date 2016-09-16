@@ -56,24 +56,41 @@ $( document ).ready(function() { //initiated when the page is first loaded
     });
 	
 	$('.buttonNextMonth').click(function(e){
-		
 		e.preventDefault();
-
 		date.setMonth(date.getMonth()+1);
 		generateMonthView(date.getMonth(), date.getFullYear());
-			
 	});
 	
 	$('.buttonPreviousMonth').click(function(e){
-		
 		e.preventDefault();
-
 		date.setMonth(date.getMonth()-1);
 		generateMonthView(date.getMonth(), date.getFullYear());
-			
 	});
 	  
-	
+	$("#btn_week1").click(function(e) {
+		e.preventDefault(e);
+		$('.week').not('#week_0').toggle();
+	});	
+	$("#btn_week2").click(function(e) {
+		e.preventDefault(e);
+		$('.week').not('week_1').toggle();
+	});
+	$("#btn_week3").click(function(e) {
+		e.preventDefault(e);
+		$('.week').not('week_2').toggle();
+	});
+	$("#btn_week4").click(function(e) {
+		e.preventDefault();
+		$('.week').not('week_3').toggle();
+	});
+	$("#btn_week5").click(function(e) {
+		e.preventDefault();
+		$('.week').not('week_4').toggle();
+	});
+	$("#btn_week6").click(function(e) {
+		e.preventDefault();
+		$('.week').not('week_5').toggle();
+	});
 });
 
 function generateMonthView(month, year){
@@ -103,15 +120,15 @@ function generateMonthView(month, year){
 		}
 		
 	}
-	
-	if( month_view.length <= 35){
+	//commented out in line with lecture discussion to always show week 6
+	/*if( month_view.length <= 35){
 		
 		$('#week_5').hide();
 	}
 	else {
 		
 		$('#week_5').show();
-	}
+	}*/
 
 	
 }
