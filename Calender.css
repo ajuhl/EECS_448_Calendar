@@ -353,3 +353,7 @@ div.scroll {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.weekBtn:hover{
+	transform: translateY(-4px);
+}

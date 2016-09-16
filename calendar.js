@@ -69,29 +69,40 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	  
 	$("#btn_week1").click(function(e) {
 		e.preventDefault(e);
-		$('.week').not('#week_0').toggle();
+		toggleWeekView(0);
 	});	
 	$("#btn_week2").click(function(e) {
 		e.preventDefault(e);
-		$('.week').not('week_1').toggle();
+		toggleWeekView(1);
 	});
 	$("#btn_week3").click(function(e) {
 		e.preventDefault(e);
-		$('.week').not('week_2').toggle();
+		toggleWeekView(2);
 	});
 	$("#btn_week4").click(function(e) {
 		e.preventDefault();
-		$('.week').not('week_3').toggle();
+		toggleWeekView(3);
 	});
 	$("#btn_week5").click(function(e) {
 		e.preventDefault();
-		$('.week').not('week_4').toggle();
+		toggleWeekView(4);
 	});
 	$("#btn_week6").click(function(e) {
 		e.preventDefault();
-		$('.week').not('week_5').toggle();
+		toggleWeekView(5);
 	});
 });
+
+function toggleWeekView(week_num){
+	
+	$('.week').not('#week_'.concat(week_num)).toggle();
+	
+	console.log(month_view.length);
+	if(month_view.length <= 35 ){
+		$('#week_5').toggle();
+	}
+	
+}
 
 function generateMonthView(month, year){
 	
@@ -101,10 +112,15 @@ function generateMonthView(month, year){
 	var table_id = "";
 	var print_white = false;
 	
-	for(var i = 0; i < month_view.length; i++ ){
+	for(var i = 0; i <= 41; i++ ){
 		
 		table_id = "#day_".concat(i);
-		$(table_id).text(month_view[i]);
+		if(i >= month_view.length){
+			$(table_id).text("");
+		}
+		else{
+			$(table_id).text(month_view[i]);
+		}
 		
 		if(month_view[i] == 1){
 			
@@ -121,14 +137,14 @@ function generateMonthView(month, year){
 		
 	}
 	//commented out in line with lecture discussion to always show week 6
-	/*if( month_view.length <= 35){
+	if( month_view.length <= 35){
 		
 		$('#week_5').hide();
 	}
 	else {
 		
 		$('#week_5').show();
-	}*/
+	}
 
 	
 }
@@ -299,7 +315,9 @@ function populateMonthArray(month, year){
 		num++;
 	} 
 	
-	num = getDaysFromMonthNum(dummy_date.getMonth()-1);
+	last_month = new Date(dummy_date.getFullYear(),dummy_date.getMonth()-1,0,0,0);
+	num = GetDaysInMonth(dummy_date);
+	
 	for(var i=first_day_of_week-1; i>=0 ;i--) {
 		
 		array.unshift(num);
