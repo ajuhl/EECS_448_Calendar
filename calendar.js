@@ -57,13 +57,16 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	
 	$('.buttonNextMonth').click(function(e){
 		e.preventDefault();
+		
 		date.setMonth(date.getMonth()+1);
+		$('.week').show();
 		generateMonthView(date.getMonth(), date.getFullYear());
 	});
 	
 	$('.buttonPreviousMonth').click(function(e){
 		e.preventDefault();
 		date.setMonth(date.getMonth()-1);
+		$('.week').show();
 		generateMonthView(date.getMonth(), date.getFullYear());
 	});
 	  
