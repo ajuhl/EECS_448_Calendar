@@ -238,7 +238,12 @@ function getBrowserDate(day,month,year){
 		//if no browser storage do something
 	}
 }
-//information for this funciton from http://www.w3schools.com/ajax/default.asp
+/**
+* call the getEvents.php page
+* @source information for this funciton from http://www.w3schools.com/ajax/default.asp
+* @param {int} month - a number representing the currently selected month
+* @param {int} day - a number representing the day you want information for
+*/
 function getEvents(month,day){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
@@ -249,14 +254,15 @@ function getEvents(month,day){
   xmlhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
   xmlhttp.send();
 }
-
+/**
+* call the postEvent.php page
+* @source information for this funciton from http://www.w3schools.com/ajax/default.asp
+* @param {int} month - a number representing the currently selected month
+* @param {int} day - a number representing the day you want information for
+* @param {string} event - event information the user wants to add
+*/
 function postEvent(month,day,event){
 	var xmlhttp = new XMLHttpRequest();
-	// xmlhttp.onreadystatechange = function() {
-	// 	if (this.readyState == 4 && this.status == 200) {
- //     document.getElementById("demo").innerHTML = this.responseText;
- //    	}
- // 	 };
  	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
   	xmlhttp.send();
 }
