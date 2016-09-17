@@ -360,3 +360,18 @@ div.scroll {
 .weekBtn:hover{
 	transform: translateY(-4px);
 }
+.delete {
+	color: #aaa;
+    /*float: right;*/
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+}
+
+.delete:hover,
+.delete:focus {
+	color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

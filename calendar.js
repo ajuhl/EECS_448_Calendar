@@ -301,6 +301,16 @@ function postEvent(month,day,event){
 	var xmlhttp = new XMLHttpRequest();
  	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
   	xmlhttp.send();
+  	getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
+}
+/**
+* delete the event
+*/
+function deleteEvent(id){
+	var xmlhttp = new XMLHttpRequest();
+ 	xmlhttp.open("GET", "deleteEvent.php?id="+id, true);
+  	xmlhttp.send();
+  	getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
 }
 
 function populateMonthArray(month, year){
