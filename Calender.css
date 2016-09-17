@@ -66,6 +66,7 @@ tr.yearViewweek  {
 	background-color: #A0A0A0 ;
 	color: white;
 	font-weight: bold;	
+	text-align: center;
 	padding: 0px;	
 }
 
@@ -73,6 +74,7 @@ td.yearViewWeek  {
 	background-color: white ;
 	color: white;
 	font-weight: bold;	
+	text-align: center;
 	padding: 0px;	
 }
 
@@ -81,13 +83,14 @@ td.yearViewDaysDiffMonth {
 	border-radius:20% 0%;
 	border: 1px solid white;
 	color: #C8C8C8 ;
+	text-align: center;
 }
 
 td.yearViewdays {
 	border-width: 5px;
 	border-radius:20% 0%;
 	border: 1px solid white;
-	
+	text-align: center;
 }
 td.weekbtn{
 	border-width: 20px;
