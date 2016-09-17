@@ -34,6 +34,7 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			document.getElementById("event_input").value="";
 			document.getElementById("month_input").value = month;
 			document.getElementById("day_input").value = day;
+			document.getElementById("modal-month").innerHTML = getMonthFromNum(month)+" "+day+getNumberEnding(day);
 		}
 		
 	});
@@ -111,7 +112,7 @@ function generateMonthView(month, year){
 	
 	$('.monthHeader').text(getMonthFromNum(month) + " " + year);
 	
-	month_view = populateMonthArray(month, year)
+	month_view = populateMonthArray(month, year);
 	var table_id = "";
 	var print_white = false;
 	
@@ -170,6 +171,14 @@ function getDaysFromMonthNum(num){
 function getNumFromMonth(month){
 	
 	return ['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(month);
+}
+/**
+* return the ending for numbers 1 through 31 ex: 1st
+* @param {int} day - the day of the month you want an ending for
+*/
+function getNumberEnding(day){
+	var endings = ['st','nd','rd','th','th','th','th','th','th','th','th','th','th','th','th','th','th','th','th','th','st','nd','rd','th','th','th','th','th','th','th','st'];
+	return endings[day-1];
 }
 
 function toggleYearView(a) {
@@ -305,6 +314,7 @@ function postEvent(month,day,event){
 }
 /**
 * delete the event
+* @param id {int} the database id of the event you want to delete
 */
 function deleteEvent(id){
 	var xmlhttp = new XMLHttpRequest();

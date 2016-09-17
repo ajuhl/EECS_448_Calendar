@@ -321,6 +321,11 @@ td.days:hover {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.modal-header{
+	 color: #800000;
+	 text-align: center;
+}
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
@@ -329,6 +334,18 @@ td.days:hover {
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
     height: 60%; 
+}
+.modal-text{
+	color: #800000;
+}
+
+/*submit a new event button*/
+input[type=submit] {
+	font-weight: bold;
+	font-size: 18px;
+	border: none; 
+	color: white;
+	background-color: black;
 }
 
 /* The Close Button */
