@@ -310,7 +310,13 @@ function postEvent(month,day,event){
 	var xmlhttp = new XMLHttpRequest();
  	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
   	xmlhttp.send();
-  	getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
+  	for(var x=0;x<3;x++){
+  		if(x==2){
+  			getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
+  		}
+  	}
+  	document.getElementById("event_input").value="";
+
 }
 /**
 * delete the event
@@ -320,7 +326,11 @@ function deleteEvent(id){
 	var xmlhttp = new XMLHttpRequest();
  	xmlhttp.open("GET", "deleteEvent.php?id="+id, true);
   	xmlhttp.send();
-  	getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
+  	for(var x=0;x<3;x++){
+  		if(x==2){
+  			getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
+  		}
+  	}
 }
 
 function populateMonthArray(month, year){
