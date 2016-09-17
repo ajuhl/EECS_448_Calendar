@@ -172,7 +172,7 @@ function getNumFromMonth(month){
 	return ['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(month);
 }
 
-function toggleYearView(a, b, c, d, e, f, g, h, i, j) {
+function toggleYearView(a) {
     
     
     var nmm =  document.getElementById('nextMonth');
@@ -356,11 +356,11 @@ function LoadMonth(id, month,year) {
 	
 	// Define table
 
-    htmlContent += "<table width = '25%' height='25%' align='center' id='table' style='display:none'>";
+    htmlContent += "<table width = '25%' height='25%' align='center' id='table' style='display:none' onclick='selectMonthView(" + mon + "," + year + ")'>";
 	
 	// Display Month, Year
 
-	htmlContent += "<th class='yearView' colspan='7' >" + GetMonthName(d) + " " + year + "</th>";
+	htmlContent += "<th class='yearView' colspan='7'  onclick='selectMonthView(" + mon + "," + year + ")'>" + GetMonthName(d) + " " + year + "</th>";
 	
 	// Build Header
 	
@@ -381,16 +381,16 @@ function LoadMonth(id, month,year) {
 	d.setDate(1);
 	
 	for (var i = 0; i < d.getDay(); i++) {  // Starting day of the week for the 1st of the month - Sunday = 0 ... Saturday = 6
-		htmlContent += "<td class='yearViewdays'></td>";
+		htmlContent += "<td class='yearViewdays' onclick='selectMonthView(" + mon + "," + year + ")'></td>";
 	}
 	
 	// Load actual days of the month
 
 	while(d.getMonth() == mon) {
-		htmlContent += "<td class='yearViewdays'>" + d.getDate() + "</td>";
+		htmlContent += "<td class='yearViewdays'  onclick='selectMonthView(" + mon + "," + year + ")'>" + d.getDate() + "</td>";
 
 		if (d.getDay() % 7 == 6) {
-			htmlContent += "</tr><tr class='yearViewweek'>";
+			htmlContent += "</tr><tr class='yearViewweek'  onclick='selectMonthView(" + mon + "," + year + ")'>";
 		};
  
 		d.setDate(d.getDate()+1);
@@ -398,10 +398,10 @@ function LoadMonth(id, month,year) {
 	
 	if (d.getDay() != 0) {
 		for (var i = d.getDay(); i < 14; i++) {
-			htmlContent += "<td class='yearViewdays'></td>";
+			htmlContent += "<td class='yearViewdays' onclick='selectMonthView(" + mon + "," + year + ")'></td>";
 			
 			if (d.getDay() % 7 == 6) {
-				htmlContent += "</tr class='yearViewweek'><tr>";
+				htmlContent += "</tr class='yearViewweek' onclick='selectMonthView(" + mon + "," + year + ")'><tr>";
 			};
  
 			d.setDate(d.getDate()+1);	
@@ -429,4 +429,10 @@ function GetMonthName(d){
 	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 	return monthNames[d.getMonth()];
+}
+
+function selectMonthView(month,year) {
+	
+	generateMonthView(month,year);
+	toggleMonthView(month);
 }
