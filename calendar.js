@@ -111,7 +111,6 @@ function toggleWeekView(week_num){
 	
 	$('.week').not('#week_'.concat(week_num)).toggle();
 	
-	console.log(month_view.length);
 	if(month_view.length <= 35 ){
 		$('#week_5').toggle();
 	}
@@ -234,7 +233,8 @@ function toggleYearView(a) {
 }
 
 function toggleMonthView(month) {
-    
+	
+	$('.week').show();
 	generateMonthView(date.getMonth(), date.getFullYear(), date.getDate());
 	displayDate = getBrowserDate();
 	
@@ -265,7 +265,6 @@ function toggleMonthView(month) {
 	mar.style.display = 'none';
 	apr.style.display = 'none';
 	may.style.display = 'none';
-	
 	
     return;
 }
