@@ -161,8 +161,9 @@ function generateMonthView(month, year, day = 'none'){
 		$('#week_5').hide();
 	}
 	else {
-		
-		$('#week_5').show();
+		if(document.getElementById('week_5').style.display == 'none' && document.getElementById('week_1').style.display != 'none' && document.getElementById('week_2').style.display != 'none'){
+			$('#week_5').show();
+		}
 	}
 
 	
