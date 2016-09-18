@@ -1,10 +1,10 @@
 $( document ).ready(function() { //initiated when the page is first loaded
 	
-	var date = new Date();
+	var date = getBrowserDate();
 	var day_of_month = date.getDate();
 	var modal = document.getElementById('dayModal');
 	
-	generateMonthView(date.getMonth(), date.getFullYear());
+	generateMonthView(date.getMonth(), date.getFullYear(), date.getDate());
 	
 	var month_view = [];
 	
@@ -17,8 +17,6 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		var selected_number = parseInt($(this).text());
 		
 		if (Math.abs(selected_index - selected_number) < 7) {
-			
-			generateMonthView(date.getMonth(), date.getFullYear());
 		
 			$(this).css('color', 'black');
 
@@ -29,6 +27,10 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			var year = date.getFullYear();
 			
 			setBrowserDate(day,month,year);
+			date = getBrowserDate();
+			
+			generateMonthView(date.getMonth(), date.getFullYear(), date.getDate());
+			
 			getEvents(month,day);
 			//fill the values for creating a new event on this day
 			document.getElementById("event_input").value="";
@@ -108,7 +110,7 @@ function toggleWeekView(week_num){
 	
 }
 
-function generateMonthView(month, year){
+function generateMonthView(month, year, day = 'none'){
 	
 	$('.monthHeader').text(getMonthFromNum(month) + " " + year);
 	
@@ -133,14 +135,20 @@ function generateMonthView(month, year){
 		
 		
 		if(print_white){
-			$(table_id).css('color','white');
+			
+			if(month_view[i] == day){
+				$(table_id).css('color','black');
+			}
+			else{
+				$(table_id).css('color','white');
+			}
 		}
 		else {
 			$(table_id).css('color','#C8C8C8');
 		}
 		
 	}
-	//commented out in line with lecture discussion to always show week 6
+	
 	if( month_view.length <= 35){
 		
 		$('#week_5').hide();
@@ -274,9 +282,7 @@ function getBrowserDate(day,month,year){
 		var month = localStorage.getItem("month", month);
 		var year = localStorage.getItem("year", year);
 		
-		var date = new Date(year, month, day, 0, 0, 0, 0);
-		
-		return date;
+		return new Date(year, month, day, 0, 0, 0, 0);
 	} 
 	else {
 
