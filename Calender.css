@@ -104,11 +104,11 @@ button.week{
 	color: white;
 	background-color: black;
 	text-align: center;
-	width: 15%;
+	width: 20%;
 	margin-left: 5%;
 	position: absolute;
 	top: 5%;
-	left: 13%;
+	left: 8%;
 	padding: 0px;
 	
 }
@@ -120,11 +120,11 @@ button.month{
 	color: white;
 	background-color: black;
 	text-align: center;
-	width: 15%;
+	width: 20%;
 	margin-left: 5%;
 	position: absolute;
 	top: 5%;
-	left: 38%;
+	left: 34.75%;
 	padding: 0px;
 	
 }
@@ -135,11 +135,11 @@ button.year{
 	color: white;
 	background-color: black;
 	text-align: center;
-	width: 15%;
+	width: 20%;
 	margin-left: 5%;
 	position: absolute;
 	top: 5%;
-	left: 63%;
+	right: 13%;
 	padding: 0px;
 }
 button.weekBtn{
