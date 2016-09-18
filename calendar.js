@@ -1,6 +1,10 @@
+var date;
+var displayDate;
+
 $( document ).ready(function() { //initiated when the page is first loaded
 	
-	var date = getBrowserDate();
+	date = getBrowserDate();
+	displayDate = getBrowserDate();
 	var day_of_month = date.getDate();
 	var modal = document.getElementById('dayModal');
 	
@@ -61,16 +65,20 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	$('.buttonNextMonth').click(function(e){
 		e.preventDefault();
 		
-		date.setMonth(date.getMonth()+1);
+		displayDate.setMonth(displayDate.getMonth()+1);
 		$('.week').show();
-		generateMonthView(date.getMonth(), date.getFullYear());
+		var highlight_date = 'none';
+		if(date.getMonth() == displayDate.getMonth() && date.getFullYear() == displayDate.getFullYear() ){highlight_date = date.getDate();}
+		generateMonthView(displayDate.getMonth(), displayDate.getFullYear(), highlight_date);
 	});
 	
 	$('.buttonPreviousMonth').click(function(e){
 		e.preventDefault();
-		date.setMonth(date.getMonth()-1);
+		displayDate.setMonth(displayDate.getMonth()-1);
 		$('.week').show();
-		generateMonthView(date.getMonth(), date.getFullYear());
+		var highlight_date = 'none';
+		if(date.getMonth() == displayDate.getMonth() && date.getFullYear() == displayDate.getFullYear() ){highlight_date = date.getDate();}
+		generateMonthView(displayDate.getMonth(), displayDate.getFullYear(), highlight_date);
 	});
 	  
 	$("#btn_week1").click(function(e) {
@@ -227,6 +235,9 @@ function toggleYearView(a) {
 
 function toggleMonthView(month) {
     
+	generateMonthView(date.getMonth(), date.getFullYear(), date.getDate());
+	displayDate = getBrowserDate();
+	
     var mo = document.getElementById('month_table');
     var nm =  document.getElementById('nextMonth');
 	var pm =  document.getElementById('prevMonth');
@@ -255,7 +266,7 @@ function toggleMonthView(month) {
 	apr.style.display = 'none';
 	may.style.display = 'none';
 	
-	      
+	
     return;
 }
 
