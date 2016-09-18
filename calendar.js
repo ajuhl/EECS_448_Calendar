@@ -27,8 +27,8 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			modal.style.display = "block";
 			
 			var day = parseInt($(this).text());
-			var month = date.getMonth();
-			var year = date.getFullYear();
+			var month = displayDate.getMonth();
+			var year = displayDate.getFullYear();
 			
 			setBrowserDate(day,month,year);
 			date = getBrowserDate();
@@ -364,8 +364,8 @@ function populateMonthArray(month, year){
 		num++;
 	} 
 	
-	last_month = new Date(dummy_date.getFullYear(),dummy_date.getMonth()-1,0,0,0);
-	num = GetDaysInMonth(dummy_date);
+	last_month = new Date(dummy_date.getFullYear(),(dummy_date.getMonth()-1),1,0,0,0,0);
+	num = GetDaysInMonth(last_month);
 	
 	for(var i=first_day_of_week-1; i>=0 ;i--) {
 		
@@ -463,9 +463,9 @@ function LoadMonth(id, month,year) {
 
 function GetDaysInMonth(d) {
 	if (d.getFullYear() % 4 == 0) {
-		var daysInMonth = [31,29,31,30,31,30,31,31,30,31,31,31];
+		var daysInMonth = [31,29,31,30,31,30,31,31,30,31,30,31];
 	} else {
-		var daysInMonth = [31,28,31,30,31,30,31,31,30,31,31,31];
+		var daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
 	};
 	
 	return daysInMonth[d.getMonth()];
