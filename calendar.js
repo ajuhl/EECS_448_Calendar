@@ -507,6 +507,12 @@ function GetMonthName(d){
 
 function selectMonthView(month,year) {
 	
-	generateMonthView(month,year);
 	toggleMonthView(month);
+	
+	var day = "none";
+	if(month == date.getMonth() && year == date.getFullYear()){
+		day = date.getDate();
+	}
+	displayDate = new Date(year,month,1,0,0,0,0);
+	generateMonthView(month,year,day);
 }
