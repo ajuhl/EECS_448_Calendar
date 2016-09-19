@@ -5,7 +5,7 @@ require('serverConnect.php');
 * @param[in] $month the month you want info for
 * @param[in] $day the day you want info for
 * @return echo the results on the page
-* \cite learned from w3schools.com at one point
+* @cite learned from w3schools.com at one point
 */
 global $conn;
 if($conn->connect_error){
