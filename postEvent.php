@@ -6,6 +6,7 @@ require('serverConnect.php');
 * @param[in] $day the day you want to add an event to
 * @param[in] $event the event you want to be added
 * @return none
+* \cite learned from w3schools.com at one point
 */
 global $conn;
 if($conn->connect_error){
