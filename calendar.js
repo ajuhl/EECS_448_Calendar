@@ -400,22 +400,15 @@ function populateMonthArray(month, year){
 		num--;
 	}
 	num = 1;
-	if(array.length >= 36){
+	
 		
-		for(var i = last_index + 1; i <= 45; i++ ){
+	for(var i = last_index + 1; i <= 45; i++ ){
 			
-			array.push(num);
-			num++;
-		}
+		array.push(num);
+		num++;
 	}
-	else {
-		
-		for(var i = last_index + 1; i <= 35; i++){
-			
-			array.push(num);
-			num++;
-		}
-	}
+	
+	
 	return array;
 }
 
