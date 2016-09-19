@@ -105,6 +105,32 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		e.preventDefault();
 		toggleWeekView(5);
 	});
+	
+	$("#topWeekBtn").click(function(e) {
+		e.preventDefault();
+		
+		toggleMonthView($('#month_table'));
+		var day_of_month = date.getDate();
+		
+		var has_reached_first_day_of_month = false;
+		var week = "";
+		for(var i = 0; i <= 41; i++ ){
+			
+			var locator = "#day_".concat(i);
+			if($(locator).text() == 1){
+				has_reached_first_day_of_month = true;
+			}
+			if($(locator).text() == day_of_month && has_reached_first_day_of_month){
+				
+				week = $(locator).parent().attr('id').slice(-1);
+				console.log(week);
+			}
+			
+			
+		}
+		toggleWeekView(week);
+		
+	});
 });
 
 function toggleWeekView(week_num){
