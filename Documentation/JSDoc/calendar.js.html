@@ -1,4 +1,32 @@
-var date;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: calendar.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: calendar.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>var date;
 var displayDate;
 
 /**
@@ -26,7 +54,7 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		var selected_index = parseInt( found_string.slice("day_".length , found_string.length) );
 		var selected_number = parseInt($(this).text());
 		
-		if (Math.abs(selected_index - selected_number) < 7) {
+		if (Math.abs(selected_index - selected_number) &lt; 7) {
 		
 			$(this).css('color', 'black');
 
@@ -83,7 +111,7 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		displayDate.setMonth(displayDate.getMonth()+1);
 		$('.week').show();
 		var highlight_date = 'none';
-		if(date.getMonth() == displayDate.getMonth() && date.getFullYear() == displayDate.getFullYear() ){highlight_date = date.getDate();}
+		if(date.getMonth() == displayDate.getMonth() &amp;&amp; date.getFullYear() == displayDate.getFullYear() ){highlight_date = date.getDate();}
 		generateMonthView(displayDate.getMonth(), displayDate.getFullYear(), highlight_date);
 	});
 
@@ -95,7 +123,7 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		displayDate.setMonth(displayDate.getMonth()-1);
 		$('.week').show();
 		var highlight_date = 'none';
-		if(date.getMonth() == displayDate.getMonth() && date.getFullYear() == displayDate.getFullYear() ){highlight_date = date.getDate();}
+		if(date.getMonth() == displayDate.getMonth() &amp;&amp; date.getFullYear() == displayDate.getFullYear() ){highlight_date = date.getDate();}
 		generateMonthView(displayDate.getMonth(), displayDate.getFullYear(), highlight_date);
 	});
 	  
@@ -138,13 +166,13 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		
 		var has_reached_first_day_of_month = false;
 		var week = "";
-		for(var i = 0; i <= 41; i++ ){
+		for(var i = 0; i &lt;= 41; i++ ){
 			
 			var locator = "#day_".concat(i);
 			if($(locator).text() == 1){
 				has_reached_first_day_of_month = true;
 			}
-			if($(locator).text() == day_of_month && has_reached_first_day_of_month){
+			if($(locator).text() == day_of_month &amp;&amp; has_reached_first_day_of_month){
 				
 				week = $(locator).parent().attr('id').slice(-1);
 			}
@@ -164,7 +192,7 @@ function toggleWeekView(week_num){
 	
 	$('.week').not('#week_'.concat(week_num)).toggle();
 	
-	if(month_view.length <= 35 ){
+	if(month_view.length &lt;= 35 ){
 		$('#week_5').toggle();
 	}
 	
@@ -184,7 +212,7 @@ function generateMonthView(month, year, day = 'none'){
 	var table_id = "";
 	var print_white = false;
 	
-	for(var i = 0; i <= 41; i++ ){
+	for(var i = 0; i &lt;= 41; i++ ){
 		
 		table_id = "#day_".concat(i);
 		if(i >= month_view.length){
@@ -215,12 +243,12 @@ function generateMonthView(month, year, day = 'none'){
 		
 	}
 	
-	if( month_view.length <= 35){
+	if( month_view.length &lt;= 35){
 		
 		$('#week_5').hide();
 	}
 	else {
-		if(document.getElementById('week_5').style.display == 'none' && document.getElementById('week_1').style.display != 'none' && document.getElementById('week_2').style.display != 'none'){
+		if(document.getElementById('week_5').style.display == 'none' &amp;&amp; document.getElementById('week_1').style.display != 'none' &amp;&amp; document.getElementById('week_2').style.display != 'none'){
 			$('#week_5').show();
 		}
 	}
@@ -412,11 +440,11 @@ function getBrowserDate(){
 function getEvents(month,day){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
+		if (this.readyState == 4 &amp;&amp; this.status == 200) {
      document.getElementById("viewEvent").innerHTML = this.responseText;
     	}
   };
-  xmlhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
+  xmlhttp.open("GET", "getEvents.php?month="+month+"&amp;day="+day, true);
   xmlhttp.send();
 }
 /**
@@ -428,9 +456,9 @@ function getEvents(month,day){
 */
 function postEvent(month,day,event){
 	var xmlhttp = new XMLHttpRequest();
- 	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
+ 	xmlhttp.open("GET", "postEvent.php?month="+month+"&amp;day="+day+"&amp;event="+event, true);
   	xmlhttp.send();
-  	for(var x=0;x<3;x++){
+  	for(var x=0;x&lt;3;x++){
   		if(x==2){
   			getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
   		}
@@ -446,7 +474,7 @@ function deleteEvent(id){
 	var xmlhttp = new XMLHttpRequest();
  	xmlhttp.open("GET", "deleteEvent.php?id="+id, true);
   	xmlhttp.send();
-  	for(var x=0;x<3;x++){
+  	for(var x=0;x&lt;3;x++){
   		if(x==2){
   			getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
   		}
@@ -467,7 +495,7 @@ function populateMonthArray(month, year){
 	var array = [];
 
 	var num = 1;
-	for(var i=first_day_of_week;i< last_index; i++){
+	for(var i=first_day_of_week;i&lt; last_index; i++){
 		
 		array.push(num);
 		num++;
@@ -484,7 +512,7 @@ function populateMonthArray(month, year){
 	num = 1;
 	
 		
-	for(var i = last_index + 1; i <= 45; i++ ){
+	for(var i = last_index + 1; i &lt;= 45; i++ ){
 			
 		array.push(num);
 		num++;
@@ -510,61 +538,61 @@ function LoadMonth(id, month,year) {
 	
 	// Define table
 
-    htmlContent += "<table width = '25%' height='25%' align='center' id='table' style='display:none' onclick='selectMonthView(" + mon + "," + year + ")'>";
+    htmlContent += "&lt;table width = '25%' height='25%' align='center' id='table' style='display:none' onclick='selectMonthView(" + mon + "," + year + ")'>";
 	
 	// Display Month, Year
 
-	htmlContent += "<th class='yearView' colspan='7'  onclick='selectMonthView(" + mon + "," + year + ")'>" + GetMonthName(d) + " " + year + "</th>";
+	htmlContent += "&lt;th class='yearView' colspan='7'  onclick='selectMonthView(" + mon + "," + year + ")'>" + GetMonthName(d) + " " + year + "&lt;/th>";
 	
 	// Build Header
 	
-	htmlContent += "<tr>";
-	htmlContent += "<td class = 'yearViewWeekday'>Sun</td>";
-	htmlContent += "<td class = 'yearViewWeekday'>Mon</td>";
-	htmlContent += "<td class = 'yearViewWeekday'>Tue</td>";
-	htmlContent += "<td class = 'yearViewWeekday'>Wed</td>";
-	htmlContent += "<td class = 'yearViewWeekday'>Thu</td>";
-	htmlContent += "<td class = 'yearViewWeekday'>Fri</td>";
-	htmlContent += "<td class = 'yearViewWeekday'>Sat</td>";
-	htmlContent += "</tr>";
+	htmlContent += "&lt;tr>";
+	htmlContent += "&lt;td class = 'yearViewWeekday'>Sun&lt;/td>";
+	htmlContent += "&lt;td class = 'yearViewWeekday'>Mon&lt;/td>";
+	htmlContent += "&lt;td class = 'yearViewWeekday'>Tue&lt;/td>";
+	htmlContent += "&lt;td class = 'yearViewWeekday'>Wed&lt;/td>";
+	htmlContent += "&lt;td class = 'yearViewWeekday'>Thu&lt;/td>";
+	htmlContent += "&lt;td class = 'yearViewWeekday'>Fri&lt;/td>";
+	htmlContent += "&lt;td class = 'yearViewWeekday'>Sat&lt;/td>";
+	htmlContent += "&lt;/tr>";
 		
 	// Build Detail
 
-	htmlContent += "<tr class='yearViewweek'>";
+	htmlContent += "&lt;tr class='yearViewweek'>";
 	
 	d.setDate(1);
 	
-	for (var i = 0; i < d.getDay(); i++) {  // Starting day of the week for the 1st of the month - Sunday = 0 ... Saturday = 6
-		htmlContent += "<td class='yearViewdays' onclick='selectMonthView(" + mon + "," + year + ")'></td>";
+	for (var i = 0; i &lt; d.getDay(); i++) {  // Starting day of the week for the 1st of the month - Sunday = 0 ... Saturday = 6
+		htmlContent += "&lt;td class='yearViewdays' onclick='selectMonthView(" + mon + "," + year + ")'>&lt;/td>";
 	}
 	
 	// Load actual days of the month
 
 	while(d.getMonth() == mon) {
-		htmlContent += "<td class='yearViewdays'  onclick='selectMonthView(" + mon + "," + year + ")'>" + d.getDate() + "</td>";
+		htmlContent += "&lt;td class='yearViewdays'  onclick='selectMonthView(" + mon + "," + year + ")'>" + d.getDate() + "&lt;/td>";
 
 		if (d.getDay() % 7 == 6) {
-			htmlContent += "</tr><tr class='yearViewweek'  onclick='selectMonthView(" + mon + "," + year + ")'>";
+			htmlContent += "&lt;/tr>&lt;tr class='yearViewweek'  onclick='selectMonthView(" + mon + "," + year + ")'>";
 		};
  
 		d.setDate(d.getDate()+1);
 	};
 	
 	if (d.getDay() != 0) {
-		for (var i = d.getDay(); i < 14; i++) {
-			htmlContent += "<td class='yearViewdays' onclick='selectMonthView(" + mon + "," + year + ")'></td>";
+		for (var i = d.getDay(); i &lt; 14; i++) {
+			htmlContent += "&lt;td class='yearViewdays' onclick='selectMonthView(" + mon + "," + year + ")'>&lt;/td>";
 			
 			if (d.getDay() % 7 == 6) {
-				htmlContent += "</tr class='yearViewweek' onclick='selectMonthView(" + mon + "," + year + ")'><tr>";
+				htmlContent += "&lt;/tr class='yearViewweek' onclick='selectMonthView(" + mon + "," + year + ")'>&lt;tr>";
 			};
  
 			d.setDate(d.getDate()+1);	
 		};
 	};
 	
-	htmlContent += "</tr>";
+	htmlContent += "&lt;/tr>";
 	
-	htmlContent += "</table>";
+	htmlContent += "&lt;/table>";
 	
 	document.getElementById(id).innerHTML = htmlContent;
 }
@@ -606,9 +634,31 @@ function selectMonthView(month,year) {
 	toggleMonthView(month);
 	
 	var day = "none";
-	if(month == date.getMonth() && year == date.getFullYear()){
+	if(month == date.getMonth() &amp;&amp; year == date.getFullYear()){
 		day = date.getDate();
 	}
 	displayDate = new Date(year,month,1,0,0,0,0);
 	generateMonthView(month,year,day);
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#deleteEvent">deleteEvent</a></li><li><a href="global.html#generateMonthView">generateMonthView</a></li><li><a href="global.html#getBrowserDate">getBrowserDate</a></li><li><a href="global.html#getDayFromNum">getDayFromNum</a></li><li><a href="global.html#getDaysFromMonthNum">getDaysFromMonthNum</a></li><li><a href="global.html#GetDaysInMonth">GetDaysInMonth</a></li><li><a href="global.html#getEvents">getEvents</a></li><li><a href="global.html#getMonthFromNum">getMonthFromNum</a></li><li><a href="global.html#GetMonthName">GetMonthName</a></li><li><a href="global.html#getNumberEnding">getNumberEnding</a></li><li><a href="global.html#getNumFromMonth">getNumFromMonth</a></li><li><a href="global.html#LoadMonth">LoadMonth</a></li><li><a href="global.html#populateMonthArray">populateMonthArray</a></li><li><a href="global.html#postEvent">postEvent</a></li><li><a href="global.html#selectMonthView">selectMonthView</a></li><li><a href="global.html#setBrowserDate">setBrowserDate</a></li><li><a href="global.html#toggleMonthView">toggleMonthView</a></li><li><a href="global.html#toggleWeekView">toggleWeekView</a></li><li><a href="global.html#toggleYearView">toggleYearView</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.1</a> on Sun Sep 18 2016 20:53:34 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
