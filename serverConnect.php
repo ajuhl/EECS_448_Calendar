@@ -1,5 +1,12 @@
 <?php
-//database information
+/**
+* connect to a database
+* @param $servername the name of the server you want to connect to
+* @param $username the userneame for the database
+* @param $password the password for the database
+* @param $db_name the name of the database to connect to
+* \cite learned from w3schools.com at one point
+*/
 $servername = "";
 $username = "";
 $password = "";
