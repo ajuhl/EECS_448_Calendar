@@ -1,6 +1,12 @@
 <?php
 require('serverConnect.php');
-
+/**
+* add events to the database
+* @param[in] $month the month you want an event added to
+* @param[in] $day the day you want to add an event to
+* @param[in] $event the event you want to be added
+* @return none
+*/
 global $conn;
 if($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);

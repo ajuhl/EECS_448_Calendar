@@ -1,6 +1,9 @@
 <?php
 require('serverConnect.php');
-
+/**
+* delete events from the database
+* @param[in] $id the unique id of the event you want to delete
+*/
 global $conn;
 if($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);

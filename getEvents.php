@@ -4,6 +4,7 @@ require('serverConnect.php');
 * get and display events. When selecting a day this gets the events from the database and displays them in the day modal
 * @param[in] $month the month you want info for
 * @param[in] $day the day you want info for
+* @return echo the results on the page
 */
 global $conn;
 if($conn->connect_error){
