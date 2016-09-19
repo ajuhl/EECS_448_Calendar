@@ -1,6 +1,9 @@
 var date;
 var displayDate;
 
+/**
+* Initializes the page
+*/
 $( document ).ready(function() { //initiated when the page is first loaded
 	
 	date = getBrowserDate();
@@ -12,6 +15,9 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	
 	var month_view = [];
 	
+	/**
+	* Clicking on any day
+	*/
 	$('.days').click(function(e){
 		
 		e.preventDefault();
@@ -45,6 +51,9 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		
 	});
 	  
+	/**
+	* Close button of the modal
+	*/  
 	$('.close').click(function(e){
 		
 		e.preventDefault();
@@ -53,6 +62,9 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			
 	});
 	  
+	/**
+	* Year Button in top right, activates the year view
+	*/  
 	$('#button_year').click(function(e){
         
 		e.preventDefault();
@@ -62,6 +74,9 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			
     });
 	
+	/**
+	* Next month button on the bottom, goes to the next month
+	*/
 	$('.buttonNextMonth').click(function(e){
 		e.preventDefault();
 		
@@ -71,7 +86,10 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		if(date.getMonth() == displayDate.getMonth() && date.getFullYear() == displayDate.getFullYear() ){highlight_date = date.getDate();}
 		generateMonthView(displayDate.getMonth(), displayDate.getFullYear(), highlight_date);
 	});
-	
+
+	/**
+	* Previous month button on the bottom, goes to the previous month
+	*/
 	$('.buttonPreviousMonth').click(function(e){
 		e.preventDefault();
 		displayDate.setMonth(displayDate.getMonth()-1);
@@ -81,6 +99,9 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		generateMonthView(displayDate.getMonth(), displayDate.getFullYear(), highlight_date);
 	});
 	  
+	/**
+	* Week view buttons on the side that are visible in month view.
+	*/
 	$("#btn_week1").click(function(e) {
 		e.preventDefault(e);
 		toggleWeekView(0);
@@ -105,7 +126,10 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		e.preventDefault();
 		toggleWeekView(5);
 	});
-	
+
+	/**
+	* Week view button in the top left that goes to the week of the currently selected date
+	*/
 	$("#topWeekBtn").click(function(e) {
 		e.preventDefault();
 		
@@ -123,7 +147,6 @@ $( document ).ready(function() { //initiated when the page is first loaded
 			if($(locator).text() == day_of_month && has_reached_first_day_of_month){
 				
 				week = $(locator).parent().attr('id').slice(-1);
-				console.log(week);
 			}
 			
 			
@@ -133,6 +156,10 @@ $( document ).ready(function() { //initiated when the page is first loaded
 	});
 });
 
+/**
+* Used to display a single week
+* @param week_num {int} the index of the week which will be displayed.
+*/
 function toggleWeekView(week_num){
 	
 	$('.week').not('#week_'.concat(week_num)).toggle();
@@ -143,6 +170,12 @@ function toggleWeekView(week_num){
 	
 }
 
+/**
+* Generates the month view
+* @param month {int} the month to be displayed
+* @param year {int} the year of the month to be displayed
+* @param day {int} the current day which should be highlighted, is 'none' if the current day does not fall under this month
+*/
 function generateMonthView(month, year, day = 'none'){
 	
 	$('.monthHeader').text(getMonthFromNum(month) + " " + year);
@@ -195,34 +228,61 @@ function generateMonthView(month, year, day = 'none'){
 	
 }
 
+/**
+* Gets a string value of a day of the week
+* @param num {int} day of the week
+* @return {string} the string value of the day of the week
+*/
 function getDayFromNum(num){
 	
 	return ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday'][num];
 }
 
+/**
+* Gets a string value of a month
+* @param num {int} the number corresponding to which month
+* @return {string} the string value of the month
+*/
 function getMonthFromNum(num){
 	
 	return ['January','February','March','April','May','June','July','August','September','October','November','December'][num];
 }
 
+/**
+* Gets the the number of days in a given month
+* @param num {int} the number of the month
+* @return {int} the number of days in the month that was input
+*/
 function getDaysFromMonthNum(num){
 	
 	return [31,28,31,30,31,30,31,31,30,31,30,31][num];
 }
 
+/**
+* Gets the string value of the month from the corresponding month number
+* @param num {int} month number
+* @return {string} the string value of the month
+*/
 function getNumFromMonth(month){
 	
 	return ['January','February','March','April','May','June','July','August','September','October','November','December'].indexOf(month);
 }
+
 /**
-* return the ending for numbers 1 through 31 ex: 1st
+* Gets the suffix for a given number in a month
 * @param {int} day - the day of the month you want an ending for
+* @return {string} the ending for numbers 1 through 31 ex: 1st
 */
 function getNumberEnding(day){
 	var endings = ['st','nd','rd','th','th','th','th','th','th','th','th','th','th','th','th','th','th','th','th','th','st','nd','rd','th','th','th','th','th','th','th','st'];
 	return endings[day-1];
 }
 
+/**
+* Creates the year view
+* @param a - the html element 
+* @return none
+*/
 function toggleYearView(a) {
     
     
@@ -259,6 +319,11 @@ function toggleYearView(a) {
 	return;
 }
 
+/**
+* Creates the month view
+* @param month - the html element 
+* @return none
+*/
 function toggleMonthView(month) {
 	
 	$('.week').show();
@@ -296,7 +361,13 @@ function toggleMonthView(month) {
     return;
 }
 
-//Information on browser storage was found here: http://www.w3schools.com/html/html5_webstorage.asp
+/**
+* Stores the currently selected day in the browser
+* @source Information on browser storage was found here: http://www.w3schools.com/html/html5_webstorage.asp
+* @param day {int} day of the month
+* @param month {int} number of the month to be stored (note January = 0, instead of 1)
+* @param year {int} the year to be stored
+*/
 function setBrowserDate(day,month,year){
 	
 	if (typeof(Storage) !== "undefined") {
@@ -310,7 +381,13 @@ function setBrowserDate(day,month,year){
 		//if no browser storage do something
 	}
 }
-function getBrowserDate(day,month,year){
+
+/**
+* Gets the currently selected day in the browser
+* @source Information on browser storage was found here: http://www.w3schools.com/html/html5_webstorage.asp
+* @return {Date} date object of the date stored in the browser
+*/
+function getBrowserDate(){
 	
 	
 	if (typeof(Storage) !== "undefined") {
@@ -376,6 +453,11 @@ function deleteEvent(id){
   	}
 }
 
+/**
+* Creates an array of the days that should be displayed for a given month
+* @param month {int} number of the month to be generated
+* @param year {int} the year to be generated
+*/
 function populateMonthArray(month, year){
 	
 	var dummy_date = new Date(year, month, 1, 0, 0, 0, 0);
@@ -412,6 +494,12 @@ function populateMonthArray(month, year){
 	return array;
 }
 
+/**
+* Creates an HTML table with variables that allows for dynamically loading the months into the year view
+* @param id {int} name of the month 
+* @param month {int} number of the month to be stored (note January = 0, instead of 1)
+* @param year {int} the year to be stored
+*/
 function LoadMonth(id, month,year) {
 	
 	var d = new Date(year, month, 0);  // Set to the first day of the month (month is internally stored as 0-11)
@@ -481,6 +569,11 @@ function LoadMonth(id, month,year) {
 	document.getElementById(id).innerHTML = htmlContent;
 }
 
+/**
+* Gets the number of days in each month
+* @param d {Date} date object with the month we want
+* @return {int} the number of days in the month of the date passed in
+*/
 function GetDaysInMonth(d) {
 	var daysInMonth;
 	if (d.getFullYear() % 4 == 0) {
@@ -492,12 +585,22 @@ function GetDaysInMonth(d) {
 	return daysInMonth[d.getMonth()];
 }
 
+/**
+* Generates the month names
+* @param d {Date} date object
+* @return {string} the string name of the month
+*/
 function GetMonthName(d){
 	var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 	return monthNames[d.getMonth()];
 }
 
+/**
+* Shows the month that is selected from Year View. 
+* @param month {int} the month to be displayed
+* @param year {int} the year of the month to be displayed
+*/
 function selectMonthView(month,year) {
 	
 	toggleMonthView(month);
