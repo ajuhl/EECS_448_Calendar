@@ -7,6 +7,7 @@ var displayDate;
 $( document ).ready(function() { //initiated when the page is first loaded
 	
 	date = getBrowserDate();
+	
 	displayDate = getBrowserDate();
 	var day_of_month = date.getDate();
 	var modal = document.getElementById('dayModal');
@@ -393,10 +394,17 @@ function getBrowserDate(){
 	if (typeof(Storage) !== "undefined") {
 
 		var day = localStorage.getItem("day", day);
-		var month = localStorage.getItem("month", month);
-		var year = localStorage.getItem("year", year);
 		
-		return new Date(year, month, day, 0, 0, 0, 0);
+		if(day === null){
+			return new Date();
+		}
+		else{
+			
+			var month = localStorage.getItem("month", month);
+			var year = localStorage.getItem("year", year);
+			return new Date(year, month, day, 0, 0, 0, 0);
+		}
+		
 	} 
 	else {
 
