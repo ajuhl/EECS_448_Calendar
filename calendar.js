@@ -142,12 +142,13 @@ $( document ).ready(function() { //initiated when the page is first loaded
 		for(var i = 0; i <= 41; i++ ){
 			
 			var locator = "#day_".concat(i);
-			if($(locator).text() == 1){
+			if($(locator).text() == '1'){
 				has_reached_first_day_of_month = true;
 			}
 			if($(locator).text() == day_of_month && has_reached_first_day_of_month){
 				
 				week = $(locator).parent().attr('id').slice(-1);
+				break;
 			}
 			
 			
@@ -164,10 +165,6 @@ $( document ).ready(function() { //initiated when the page is first loaded
 function toggleWeekView(week_num){
 	
 	$('.week').not('#week_'.concat(week_num)).toggle();
-	
-	if(month_view.length <= 35 ){
-		$('#week_5').toggle();
-	}
 	
 }
 
@@ -214,16 +211,6 @@ function generateMonthView(month, year, day = 'none'){
 			$(table_id).css('color','#C8C8C8');
 		}
 		
-	}
-	
-	if( month_view.length <= 35){
-		
-		$('#week_5').hide();
-	}
-	else {
-		if(document.getElementById('week_5').style.display == 'none' && document.getElementById('week_1').style.display != 'none' && document.getElementById('week_2').style.display != 'none'){
-			$('#week_5').show();
-		}
 	}
 
 	
