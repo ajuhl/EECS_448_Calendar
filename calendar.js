@@ -489,10 +489,11 @@ function LoadMonth(id, month,year) {
 }
 
 function GetDaysInMonth(d) {
+	var daysInMonth;
 	if (d.getFullYear() % 4 == 0) {
-		var daysInMonth = [31,29,31,30,31,30,31,31,30,31,30,31];
+		daysInMonth = [31,29,31,30,31,30,31,31,30,31,30,31];
 	} else {
-		var daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+		daysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
 	};
 	
 	return daysInMonth[d.getMonth()];
