@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 (require('serverConnect.php')) or die('Could not connect to SQL server.');
 /**
 * get and display events. When selecting a day this gets the events from the database and displays them in the day modal

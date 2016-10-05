@@ -1,4 +1,5 @@
 <?php
+
 require('serverConnect.php');
 /**
 * add events to the database
@@ -13,12 +14,14 @@ if($conn->connect_error){
 	die("connection failed: " . $conn->connect_error);
 }
 //get variables from http request
-$month = $_GET['month'];
-$day = $_GET['day'];
-$event = $_GET['event'];
+$start = $_GET['start'].':00';
+$end = $_GET['end'].':00';
+$event = $_GET['title'];
+$repeat = $_GET['repeat'];
+$start[10] = ' ';
+$end[10] = ' ';
 //insert values into database
-$sql = "INSERT INTO calendar (month, day, event)
-values('$month','$day','$event')";
+$sql = "INSERT INTO calendar (`start`,`stop`,`repeat`,`event`) values('$start','$end','$repeat','$event')";
 //if post did not work show error
 if($conn->query($sql) != TRUE){
 	echo "Error" .$sql . "<br>" . $conn->error;

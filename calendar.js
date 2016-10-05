@@ -408,7 +408,7 @@ function getEvents(month,day){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("viewEvent").innerHTML = this.responseText;
+			document.getElementById("viewEvent").innerHTML = this.responseText;
     	}
   };
   xmlhttp.open("GET", "getEvents.php?month="+month+"&day="+day, true);
@@ -421,10 +421,53 @@ function getEvents(month,day){
 * @param {int} day - a number representing the day you want information for
 * @param {string} event - event information the user wants to add
 */
-function postEvent(month,day,event){
+function postEvent(){
 	var xmlhttp = new XMLHttpRequest();
- 	xmlhttp.open("GET", "postEvent.php?month="+month+"&day="+day+"&event="+event, true);
+	title = document.getElementById('event_input').value;
+	start = document.getElementById('start_input').value;
+	end = document.getElementById('end_input').value;
+	weekly = document.getElementById('weekly').checked;
+	biweekly = document.getElementById('biweekly').checked;
+	monthly = document.getElementById('monthly').checked;
+	sunday = document.getElementById('sunday').checked;
+	monday = document.getElementById('monday').checked;
+	tuesday = document.getElementById('tuesday').checked;
+	wednesday = document.getElementById('wednesday').checked;
+	thursday = document.getElementById('thursday').checked;
+	friday = document.getElementById('friday').checked;
+	saturday = document.getElementById('saturday').checked;
+	repeat = "";
+	if(weekly){
+		repeat += 'w';
+	}else if(biweekly){
+		repeat += 'b';
+	}else if(monthly){
+		repeat += 'm';
+	}
+	if(sunday){
+		repeat += '0';
+	}
+	if(monday){
+		repeat += '1';
+	}
+	if(tuesday){
+		repeat += '2';
+	}
+	if(wednesday){
+		repeat += '3';
+	}
+	if(thursday){
+		repeat += '4';
+	}
+	if(friday){
+		repeat += '5';
+	}
+	if(saturday){
+		repeat += '6';
+	}
+ 	xmlhttp.open("GET", "postEvent.php?start="+start+"&end="+end+"&title="+title+"&repeat="+repeat, true);
   	xmlhttp.send();
+	
   	for(var x=0;x<3;x++){
   		if(x==2){
   			getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
