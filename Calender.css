@@ -340,7 +340,7 @@ td.days:hover {
 }
 
 /*submit a new event button*/
-input[type=submit] {
+input[type=submit],input[type=reset] {
 	font-weight: bold;
 	font-size: 18px;
 	border: none; 
@@ -391,4 +391,9 @@ div.scroll {
 	color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.overlap{
+	text-decoration:underline;
+	color:#f00;
 }

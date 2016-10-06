@@ -119,17 +119,28 @@ if($conn->connect_error){
 $month = $_GET['month'];
 $day = $_GET['day'];
 
-$sql = "SELECT * FROM calendar"; /**< Select statement for the month and day info passed in*/
+$sql = "SELECT * FROM calendar ORDER BY start DESC"; /**< Select statement for the month and day info passed in*/
 $result = $conn->query($sql);
 
+$lastEnd = 0;
 while($row = $result->fetch_assoc()){
 	$startDate = new DateTime($row['start'], new DateTimeZone('America/Chicago'));
 	$endDate = new DateTime($row['stop'], new DateTimeZone('America/Chicago'));
 	$repeat = $row['repeat'];
 	if(isInRange($startDate,$endDate,$month,$day)){
-		echo "<p>" . $row['event'] . ':  ' . formatRange($startDate,$endDate) ." <button class=\"delete\" onClick=\"deleteEvent(this.value)\" value=\"".$row['id']."\">x</button></p>";
+		if($lastEnd>$startDate->getTimestamp()){
+			echo "<p>" . $row['event'] . ':  <span class="overlap">' . formatRange($startDate,$endDate) ."</span> <button class=\"delete\" onClick=\"deleteEvent(this.value)\" value=\"".$row['id']."\">x</button></p>";
+		}else{
+			echo "<p>" . $row['event'] . ':  ' . formatRange($startDate,$endDate) ." <button class=\"delete\" onClick=\"deleteEvent(this.value)\" value=\"".$row['id']."\">x</button></p>";
+		}
+		$lastEnd = $endDate->getTimestamp();
 	}elseif(repeatIsInRange($startDate,$endDate,$month,$day,$repeat)){
-		echo "<p>" . $row['event'] . ':  ' . formatRange($startDate,$endDate) ." <button class=\"delete\" onClick=\"deleteEvent(this.value)\" value=\"".$row['id']."\">x</button></p>";
+		if($lastEnd>$startDate->getTimestamp()){
+			echo "<p>" . $row['event'] . ':  <span class="overlap">' . formatRange($startDate,$endDate) ."</span> <button class=\"delete\" onClick=\"deleteEvent(this.value)\" value=\"".$row['id']."\">x</button></p>";
+		}else{
+			echo "<p>" . $row['event'] . ':  ' . formatRange($startDate,$endDate) ." <button class=\"delete\" onClick=\"deleteEvent(this.value)\" value=\"".$row['id']."\">x</button></p>";
+		}
+		$lastEnd = $endDate->getTimestamp();
 	}
 }
 

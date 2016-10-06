@@ -465,16 +465,26 @@ function postEvent(){
 	if(saturday){
 		repeat += '6';
 	}
- 	xmlhttp.open("GET", "postEvent.php?start="+start+"&end="+end+"&title="+title+"&repeat="+repeat, true);
-  	xmlhttp.send();
-	
-  	for(var x=0;x<3;x++){
-  		if(x==2){
-  			getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
-  		}
-  	}
-  	document.getElementById("event_input").value="";
-
+	if(repeat==''){ repeat='n'; }
+	if(start==''||end==''){
+		alert('You must enter a start and end date!');
+		return false;
+	}
+	if(repeat=='n'){
+		xmlhttp.open("GET", "postEvent.php?start="+start+"&end="+end+"&title="+title+"&repeat="+repeat, true);
+		xmlhttp.send();
+		getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
+		document.getElementById("event_input").value="";
+	}else{
+		if(start.substring(0,10)!=end.substring(0,10)){
+			alert('Multi-day events cannot be repeated!');
+		}else{
+			xmlhttp.open("GET", "postEvent.php?start="+start+"&end="+end+"&title="+title+"&repeat="+repeat, true);
+			xmlhttp.send();
+			getEvents(localStorage.getItem("month"),localStorage.getItem("day"));
+			document.getElementById("event_input").value="";
+		}
+	}
 }
 /**
 * delete the event
